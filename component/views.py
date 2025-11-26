@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Component
 
 # Create your views here.
-def home_page_view(request):
-    return HttpResponse("Hello, World!")
+
+class ComponentList(generic.ListView):
+    queryset = Component.objects.all()
+    template_name = "component_list.html"
