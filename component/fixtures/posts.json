@@ -1,0 +1,327 @@
+[
+  {
+    "model": "component.component",
+    "pk": 1,
+    "fields": {
+      "name": "AMD Ryzen 5 5600X",
+      "slug": "amd-ryzen-5-5600x",
+      "category": "CPU",
+      "price": 189.99,
+      "description": "6-core, 12-thread processor for AM4 platform",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 2,
+    "fields": {
+      "name": "Intel Core i5-12600K",
+      "slug": "intel-core-i5-12600k",
+      "category": "CPU",
+      "price": 249.99,
+      "description": "10-core hybrid architecture processor for LGA 1700",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 3,
+    "fields": {
+      "name": "AMD Ryzen 7 5800X",
+      "slug": "amd-ryzen-7-5800x",
+      "category": "CPU",
+      "price": 299.99,
+      "description": "8-core, 16-thread AM4 processor with strong single-core performance",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 4,
+    "fields": {
+      "name": "Intel Core i7-13700F",
+      "slug": "intel-core-i7-13700f",
+      "category": "CPU",
+      "price": 379.99,
+      "description": "16-core Raptor Lake processor ideal for gaming and productivity",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 5,
+    "fields": {
+      "name": "AMD Ryzen 9 7900X",
+      "slug": "amd-ryzen-9-7900x",
+      "category": "CPU",
+      "price": 429.99,
+      "description": "12-core AM5 processor with high performance for creators",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 6,
+    "fields": {
+      "name": "NVIDIA GeForce RTX 4060",
+      "slug": "nvidia-geforce-rtx-4060",
+      "category": "GPU",
+      "price": 329.99,
+      "description": "Mainstream Ada Lovelace GPU for 1080p/1440p gaming",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 7,
+    "fields": {
+      "name": "NVIDIA GeForce RTX 4070",
+      "slug": "nvidia-geforce-rtx-4070",
+      "category": "GPU",
+      "price": 599.99,
+      "description": "High-performance 1440p gaming GPU",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 8,
+    "fields": {
+      "name": "AMD Radeon RX 7600",
+      "slug": "amd-radeon-rx-7600",
+      "category": "GPU",
+      "price": 269.99,
+      "description": "Affordable AMD GPU for 1080p gaming",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 9,
+    "fields": {
+      "name": "AMD Radeon RX 7800 XT",
+      "slug": "amd-radeon-rx-7800-xt",
+      "category": "GPU",
+      "price": 499.99,
+      "description": "Strong 1440p AMD GPU with excellent value",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 10,
+    "fields": {
+      "name": "NVIDIA GeForce RTX 4080 Super",
+      "slug": "nvidia-geforce-rtx-4080-super",
+      "category": "GPU",
+      "price": 1099.99,
+      "description": "Enthusiast GPU for high refresh rate 4K gaming",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 11,
+    "fields": {
+      "name": "Corsair Vengeance 16GB DDR4 3200MHz",
+      "slug": "corsair-vengeance-16gb-ddr4-3200mhz",
+      "category": "RAM",
+      "price": 49.99,
+      "description": "Popular dual-channel DDR4 memory kit",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 12,
+    "fields": {
+      "name": "G.Skill Trident Z RGB 32GB DDR4 3600MHz",
+      "slug": "g-skill-trident-z-rgb-32gb-ddr4-3600mhz",
+      "category": "RAM",
+      "price": 89.99,
+      "description": "High-performance DDR4 RAM with RGB lighting",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 13,
+    "fields": {
+      "name": "Corsair Vengeance 32GB DDR5 6000MHz",
+      "slug": "corsair-vengeance-32gb-ddr5-6000mhz",
+      "category": "RAM",
+      "price": 139.99,
+      "description": "Fast DDR5 memory compatible with AM5 and Intel 13th Gen",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 14,
+    "fields": {
+      "name": "Kingston Fury Beast 16GB DDR5 5200MHz",
+      "slug": "kingston-fury-beast-16gb-ddr5-5200mhz",
+      "category": "RAM",
+      "price": 69.99,
+      "description": "Entry-level DDR5 RAM perfect for new builds",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 15,
+    "fields": {
+      "name": "G.Skill Ripjaws S5 32GB DDR5 6000MHz",
+      "slug": "g-skill-ripjaws-s5-32gb-ddr5-6000mhz",
+      "category": "RAM",
+      "price": 124.99,
+      "description": "Low-profile DDR5 memory for small form factor builds",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 16,
+    "fields": {
+      "name": "Samsung 980 1TB NVMe SSD",
+      "slug": "samsung-980-1tb-nvme-ssd",
+      "category": "SSD",
+      "price": 69.99,
+      "description": "Fast PCIe 3.0 NVMe SSD for budget builds",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 17,
+    "fields": {
+      "name": "Samsung 990 Pro 2TB NVMe SSD",
+      "slug": "samsung-990-pro-2tb-nvme-ssd",
+      "category": "SSD",
+      "price": 169.99,
+      "description": "High-end PCIe 4.0 NVMe SSD with excellent endurance",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 18,
+    "fields": {
+      "name": "Crucial P5 Plus 1TB NVMe SSD",
+      "slug": "crucial-p5-plus-1tb-nvme-ssd",
+      "category": "SSD",
+      "price": 89.99,
+      "description": "Reliable PCIe 4.0 SSD with solid performance",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 19,
+    "fields": {
+      "name": "WD Black SN850X 2TB NVMe SSD",
+      "slug": "wd-black-sn850x-2tb-nvme-ssd",
+      "category": "SSD",
+      "price": 179.99,
+      "description": "Top-tier PCIe 4.0 NVMe SSD for gaming",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 20,
+    "fields": {
+      "name": "Kingston NV2 500GB NVMe SSD",
+      "slug": "kingston-nv2-500gb-nvme-ssd",
+      "category": "SSD",
+      "price": 34.99,
+      "description": "Affordable NVMe SSD suitable for OS installations",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 21,
+    "fields": {
+      "name": "Corsair RM750 750W Gold PSU",
+      "slug": "corsair-rm750-750w-gold-psu",
+      "category": "PSU",
+      "price": 99.99,
+      "description": "80+ Gold modular power supply",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 22,
+    "fields": {
+      "name": "EVGA 600 BR 600W Bronze PSU",
+      "slug": "evga-600-br-600w-bronze-psu",
+      "category": "PSU",
+      "price": 49.99,
+      "description": "Budget-friendly 80+ Bronze power supply",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 23,
+    "fields": {
+      "name": "Seasonic Focus GX-850 Gold PSU",
+      "slug": "seasonic-focus-gx-850-gold-psu",
+      "category": "PSU",
+      "price": 139.99,
+      "description": "High-quality modular PSU for performance builds",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 24,
+    "fields": {
+      "name": "Be Quiet! Pure Power 12 M 750W PSU",
+      "slug": "be-quiet-pure-power-12m-750w-psu",
+      "category": "PSU",
+      "price": 109.99,
+      "description": "Silent power supply with ATX 3.0 support",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  },
+  {
+    "model": "component.component",
+    "pk": 25,
+    "fields": {
+      "name": "NZXT H510 Mid Tower Case",
+      "slug": "nzxt-h510-mid-tower-case",
+      "category": "Case",
+      "price": 74.99,
+      "description": "Clean and modern PC case with good airflow",
+      "featured_image": "",
+      "created_on": "2025-11-26T17:00:00Z"
+    }
+  }
+]
