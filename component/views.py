@@ -6,4 +6,4 @@ from .models import Component
 
 class ComponentList(generic.ListView):
     queryset = Component.objects.all()
-    template_name = "component/component_list.html"
+    template_name = "component_list.html"
