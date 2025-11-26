@@ -15,9 +15,12 @@
         <p>{{ component.description }}</p>
         <p>Price: {{ component.price }}</p>
         <p>Category: {{ component.category }}</p>
-        <div class="image-container">
-            <img class="card-img-top" src="{{ component.featured_image.url }}" alt="{{ component.name }}">
-        </div>
+
+        {% if component.featured_image %}
+            <div class="image-container">
+                <img class="card-img-top" src="{{ component.featured_image.url }}" alt="{{ component.name }}">
+            </div>
+        {% endif %}
     {% endfor %}
 
 </body>
