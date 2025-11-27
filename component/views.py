@@ -6,4 +6,5 @@ from .models import Component
 
 class ComponentList(generic.ListView):
     queryset = Component.objects.all()
-    template_name = "component_list.html"
+    template_name = "component/index.html"
+    paginate_by = 8

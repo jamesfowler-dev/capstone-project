@@ -16,11 +16,11 @@
         <p>Price: {{ component.price }}</p>
         <p>Category: {{ component.category }}</p>
 
-        {% if component.featured_image %}
+        {% comment %} {% if component.featured_image %}
             <div class="image-container">
                 <img class="card-img-top" src="{{ component.featured_image.url }}" alt="{{ component.name }}">
             </div>
-        {% endif %}
+        {% endif %} {% endcomment %}
     {% endfor %}
 
 </body>
