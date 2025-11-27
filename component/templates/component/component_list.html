@@ -1,29 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %} {% block content %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Views Part 1</title>
-</head>
+<div class="container">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <!-- Post title goes in these h1 tags -->
+            <h1 class="component-title">{{ component.name }}</h1>
+            <!-- Post author goes before the | the post's created date goes after -->
+            <p class="text-muted">
+                Category: {{ component.category }} | 
+                Price: ${{ component.price }}
+            </p>
+        </div>
 
-<body>
-    <h1>Components list</h1>
-    {% for component in object_list %}
-        <h2>{{ component.name }}</h2>
-        <p>{{ component.description }}</p>
-        <p>Price: {{ component.price }}</p>
-        <p>Category: {{ component.category }}</p>
+        <div class="d-none d-md-block col-md-6">
+            {% if component.featured_image %}
+                <img src="{{ component.featured_image.url }}" 
+                    class="img-fluid rounded shadow" 
+                    alt="{{ component.name }}">
+            {% else %}
+                <img src="{% static 'images/default.jpg' %}" 
+                    class="img-fluid rounded shadow" 
+                    alt="placeholder">
+            {% endif %}
+        </div>
+    </div>
+</div>
 
-        {% comment %} {% if component.featured_image %}
-            <div class="image-container">
-                <img class="card-img-top" src="{{ component.featured_image.url }}" alt="{{ component.name }}">
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col card mb-4">
+            <div class="card-body">
+                <p class="card-text">
+                    {{ component.description }}
+                </p>
             </div>
-        {% endif %} {% endcomment %}
-        <p class="card-text">{{ component.excerpt }}</p>
-    {% endfor %}
+        </div>
+    </div>
+</div>
 
-</body>
-
-</html>
+{% endblock content %}

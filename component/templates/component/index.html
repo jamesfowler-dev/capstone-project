@@ -16,7 +16,9 @@
                     <h5 class="card-title">{{ component.name }}</h5>
                     <p class="card-text text-truncate">{{ component.description }}</p>
                     <p class="mt-auto fw-bold text-primary">${{ component.price }}</p>
-                    <span class="badge bg-secondary">{{ component.category }}</span>
+                    <p class="card-text text-truncate">{{ component.category }}</p>
+                    <span class="badge bg-secondary"><a href="{% url 'component_detail' component.slug %}"></a></span>
+                    
                 </div>
             </div>
         </div>
