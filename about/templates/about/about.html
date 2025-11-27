@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-md-4 text-center">
+        <img src="{% static 'images/EZPC Review.jpg' %}" alt="placeholder image">
+    </div>
+    <div class="col-8">
+      <h2>{{ about.title }}</h2>
+      {{ about.content | safe }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-right">
+      <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+    </div>
+  </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 my-5">
+            <h2>Get the latest news!</h2>
+            <p></p>
+            <form method="post">
+            {{ newsletter_form | crispy }}
+            {% csrf_token %}
+            <button type="submit"
+                class="btn, btn-secondary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
