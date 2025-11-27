@@ -12,11 +12,11 @@ class ComponentList(generic.ListView):
 
 def component_detail(request, slug):
     """
-    Display an individual :model:`blog.Post`.
+    Display an individual :model:`component.Component`.
 
     **Context**
 
-    ``post``
+    ``component``
         An instance of :model:`component.Component`.
 
     **Template:**
