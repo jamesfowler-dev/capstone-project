@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Component
+from review.models import Review, Comment
+from review.forms import ReviewForm, CommentForm
 
 # Create your views here.
 
@@ -11,24 +13,31 @@ class ComponentList(generic.ListView):
 
 
 def component_detail(request, slug):
-    """
-    Display an individual :model:`component.Component`.
 
-    **Context**
+    component = get_object_or_404(Component, slug=slug)
+    reviews = component.reviews.filter(status=1)
 
-    ``component``
-        An instance of :model:`component.Component`.
+    if request.method == "POST":
+        review_form = ReviewForm(data=request.POST)
 
-    **Template:**
-
-    :template:`component/component_detail.html`
-    """
-
-    queryset = Component.objects.filter(status=1)
-    component = get_object_or_404(queryset, slug=slug)
-
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.component = component
+            review.author = request.user  # Make sure users are logged in
+            review.save()
+            # messages.add_message(
+            #     request, messages.SUCCESS,
+            #     'Review submitted and awaiting approval'
+            # )
+            return redirect('component_detail', slug=component.slug)
+    else:
+        review_form = ReviewForm()    
+ 
     return render(
         request,
         "component/component_detail.html",
-        {"component": component},
+        {"component": component, 
+         "reviews": reviews,
+         "review_form": review_form,
+         },
     )
