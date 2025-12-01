@@ -42,6 +42,26 @@
         </div>
     </div>
 
+    {% comment %} Review Submission form  {% endcomment %}
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3">
+            <div class="card-body">
+                <h3>Write a Review</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ review_form|crispy }}
+                    <button type="submit" name="submit_review" class="btn btn-primary mt-2">
+                        Submit Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <p class="text-muted mt-2">Log in to write a review.</p>
+    {% endif %}
+
     <!-- Reviews Section -->
     <h2 class="mt-5">Reviews</h2>
     {% if reviews %}
@@ -60,7 +80,7 @@
                         <div class="col-md-8 card mb-4 mt-3">
                             <h3>Comments:</h3>
                             <div class="card-body">
-                                {% for comment in review.comments.all %}
+                                {% for comment in review.comments.all%}
                                     {% if comment.approved %}
                                         <div class="p-2 mb-2 bg-light rounded">
                                             <strong>{{ comment.author.username }}</strong>
@@ -80,7 +100,7 @@
                                 {{ comment_form|crispy }}
                                 {% csrf_token %}
                                 <input type="hidden" name="review_id" value="{{ review.id }}">
-                                <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
+                                <button type="submit" name="comment_form" class="btn btn-primary mt-2">Submit Comment</button>
                             </form>
                         {% else %}
                             <p class="text-muted mt-2">Log in to leave a comment.</p>

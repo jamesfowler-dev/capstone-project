@@ -34,42 +34,39 @@ def component_detail(request, slug):
     comment_form = CommentForm()
 
     # Handle Review Submit
-    if request.method == "POST" and "submit_review" in request.POST:
-        review_form = ReviewForm(data=request.POST)
+    if request.method == "POST":
+        if "submit_review" in request.POST:
+            review_form = ReviewForm(request.POST)
+            if review_form.is_valid():
+                review = review_form.save(commit=False)
+                review.component = component
+                review.author = request.user
+                review.save()
+                messages.success(request, "Review submitted and awaiting approval")
+                return redirect("component_detail", slug=component.slug)
 
-        if review_form.is_valid():
-            review = review_form.save(commit=False)
-            review.component = component
-            # Make sure users are logged in
-            review.author = request.user 
-            review.save()
-
-            messages.success(
-                request, 'Review submitted and awaiting approval')
-            return redirect('component_detail', slug=component.slug)  
-        
-    # Handle Comment Submit
-    if request.method == "POST" and 'comment_form' in request.POST:
-        comment_form = CommentForm(request.POST)
-
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            review_id = request.POST.get('review_id')
-            comment.review = Review.objects.get(id=review_id)
-            comment.author = request.user
-            comment.save()
-            messages.success(request, "Comment submitted!")
-            return redirect("component_detail", slug=slug)
+        # COMMENT SUBMISSION
+        elif "comment_form" in request.POST:
+            comment_form = CommentForm(request.POST)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                review_id = request.POST.get("review_id")
+                review = get_object_or_404(Review, id=review_id)
+                comment.review = review
+                comment.author = request.user
+                comment.save()
+                messages.success(request, "Comment submitted!")
+                return redirect("component_detail", slug=component.slug)
  
+    context = {
+        "component": component,
+        "reviews": reviews,
+        "review_form": review_form,
+        "comment_form": comment_form,
+        "comments": comments,
+        "comment_count": comment_count,
+    }
+
     return render(
         request,
-        "component/component_detail.html",
-        {   
-            "component": component,
-            "reviews": reviews,
-            "review_form": review_form,
-            "comments": comments,
-            "comment_count": comment_count,
-            "comment_form": comment_form,
-        },
-    )
+        "component/component_detail.html", context)
