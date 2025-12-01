@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, reverse 
 from django.views import generic
-from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .models import Component
 from review.models import Review, Comment
 from review.forms import ReviewForm, CommentForm
@@ -43,7 +43,7 @@ def component_detail(request, slug):
                 review.author = request.user
                 review.save()
                 messages.success(request, "Review submitted and awaiting approval")
-                return redirect("component_detail", slug=component.slug)
+                return HttpResponseRedirect(reverse('component_detail', args=[slug]))
 
         # COMMENT SUBMISSION
         elif "comment_form" in request.POST:
@@ -56,7 +56,7 @@ def component_detail(request, slug):
                 comment.author = request.user
                 comment.save()
                 messages.success(request, "Comment submitted!")
-                return redirect("component_detail", slug=component.slug)
+                return HttpResponseRedirect(reverse('component_detail', args=[slug]))
  
     context = {
         "component": component,
@@ -70,3 +70,38 @@ def component_detail(request, slug):
     return render(
         request,
         "component/component_detail.html", context)
+
+
+def comment_edit(request, slug, comment_id):
+    """
+    View to edit a comment
+    """
+    component = get_object_or_404(Component, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id, review__component=component)
+
+    if request.user != comment.author:
+        messages.error(request, "You are not allowed to edit this comment.")
+        return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST, instance=comment)
+        if comment_form.is_valid():
+            edited_comment = comment_form.save(commit=False)
+            edited_comment.approved = False  # Reset approval
+            edited_comment.save()
+            messages.success(request, "Comment updated! Awaiting approval.")
+            return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+        else:
+            messages.error(request, "Error updating comment!")
+    else:
+        comment_form = CommentForm(instance=comment)
+
+    return render(
+        request,
+        "review/comment_edit.html",
+        {
+            "comment_form": comment_form,
+            "comment": comment,
+            "component": component,
+        },
+    )

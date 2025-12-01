@@ -60,6 +60,9 @@
                                             <small>{{ comment.created_on|date:"M d, Y H:i" }}</small>
                                             <p>{{ comment.body|linebreaks }}</p>
                                         </div>
+                                        {% if user.is_authenticated and comment.author == user %}
+                                        <button class="btn btn-edit"
+                                            comment_id="{{ comment.id }}">Edit</button>
                                         {% endif %}
                                     {% empty %}
                                         <p class="text-muted">No comments yet.</p>
