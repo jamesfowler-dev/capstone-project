@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from django.contrib import messages
 from .models import About
 from .forms import NewsletterForm
@@ -14,7 +14,9 @@ def about(request):
             newsletter_form .save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Success! Keep an eye on your emails for the latest on the best components around!')         
+                'Success! Keep an eye on your emails for the latest on the best components around!') 
+            return redirect(request.path)
+
     about = About.objects.all().order_by('-updated_on').first()
     return render(
         request,

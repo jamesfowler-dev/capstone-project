@@ -50,7 +50,7 @@
         </div>
     </div>
     {% else %}
-        <p><a href="{% url 'account_login' %}">Log in</a> to write a review.</p>
+        <p><a href="{% url 'account_login' %}?next={{ request.path }}">Log in</a> to write a review.</p>
     {% endif %}
 
     <!-- Reviews Section -->
@@ -115,9 +115,12 @@
                                             Submit Comment
                                         </button>
                                     </form>
-
                                 </div>
                             </div>
+                            {% else %}
+                            <p>
+                                <a href="{% url 'account_login' %}?next={{ request.path }}">Log in</a> to leave a comment.
+                            </p>
                             {% endif %}
                         </div>
                     </div>
