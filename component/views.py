@@ -105,3 +105,21 @@ def comment_edit(request, slug, comment_id):
             "component": component,
         },
     )
+
+
+def comment_delete(request, slug, comment_id):
+    """
+    Delete a comment belonging to a component review
+    """
+    component = get_object_or_404(Component, slug=slug)
+    comment = get_object_or_404(
+        Comment, pk=comment_id, review__component=component)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('component_detail', args=[slug]))
