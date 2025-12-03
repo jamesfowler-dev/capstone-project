@@ -72,6 +72,59 @@ def component_detail(request, slug):
         "component/component_detail.html", context)
 
 
+def review_edit(request, slug, review_id):
+    """
+    View to edit a review
+    """
+    component = get_object_or_404(Component, slug=slug)
+    review = get_object_or_404(Review, pk=review_id, component=component)
+
+    if request.user != review.author:
+        messages.error(request, "You are not allowed to edit this review.")
+        return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+
+    if request.method == "POST":
+        review_form = ReviewForm(request.POST, instance=review)
+        if review_form.is_valid():
+            edited_review = review_form.save(commit=False)
+            edited_review.status = 0  # Reset approval
+            edited_review.save()
+            messages.success(request, "Review updated! Awaiting approval.")
+            return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+        else:
+            messages.error(request, "Error updating review!")
+    else:
+        review_form = ReviewForm(instance=review)
+
+    return render(
+        request,
+        "review/review_edit.html",
+        {
+            "review_form": review_form,
+            "review": review,
+            "component": component,
+        },
+    )
+
+
+def review_delete(request, slug, review_id):
+    """
+    Delete a review belonging to a component 
+    """
+    component = get_object_or_404(Component, slug=slug)
+    review = get_object_or_404(
+        Review, pk=review_id, component=component)
+
+    if review.author == request.user:
+        review.delete()
+        messages.add_message(request, messages.SUCCESS, 'Review deleted!')
+    else:
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own reviews!')
+
+    return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+
+
 def comment_edit(request, slug, comment_id):
     """
     View to edit a comment
