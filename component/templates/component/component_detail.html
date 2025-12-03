@@ -79,11 +79,10 @@
 
                                             {% if user.is_authenticated and comment.author == user %}
                                                 <!-- Edit Button -->
-                                                <button class="btn btn-edit btn-primary mt-2"
-                                                    data-comment-id="{{ comment.id }}"
-                                                    data-review-id="{{ review.id }}">
-                                                    Edit
-                                                </button>
+                                                <a href="{% url 'comment_edit' component.slug comment.id %}"
+                                                    class="btn btn-primary mt-2">
+                                                Edit
+                                                </a>
 
                                                 <!-- Delete Button -->
                                                 <form method="post" action="{% url 'comment_delete' component.slug comment.id %}" style="display:inline;">
