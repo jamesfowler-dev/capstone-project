@@ -10,4 +10,4 @@ class NewsletterForm(forms.ModelForm):
         Specify the django model and order of the fields
         """
         model = NewsletterRequest
-        fields = ('name', 'email')
+        fields = ('name', 'email', 'message')
