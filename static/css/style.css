@@ -41,6 +41,24 @@ a {
     border-radius: 0.5rem;
 }
 
+/* Jumbotron */
+.homepage-jumbotron {
+    background-image: url("{% static 'images/banners/CCL_645_DT_FRACTAL_BANN_1250x515_.png' %}");
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    position: relative;
+    color: #ffffff;
+}
+
+.jumbotron-content {
+    background-color: rgba(0, 0, 0, 0.45); /* semi-transparent overlay for readability */
+    padding: 10rem 10rem;
+    width: 100%; 
+    border-radius: 10px;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
 /* Cards */
 
 /* Make component card images consistent */
@@ -118,6 +136,11 @@ a {
 }
 
 /* footer */
-footer.p {
+footer ul.list-inline li {
+    margin: 0 5px;
+}
 
+footer a.text-light:hover {
+    color: #ffd700; 
+    text-decoration: underline;
 }

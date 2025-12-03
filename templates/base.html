@@ -103,7 +103,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
+    {% comment %} <footer class="footer mt-auto py-3 dark-bg">
         <p class="m-0 text-center">
             {% block copyright %}
                 Made by James Fowler
@@ -115,7 +115,40 @@
             <i class="fab fa-instagram-square ms-3"></i>
             <i class="fab fa-youtube-square ms-3"></i>
         </p>
+    </footer> {% endcomment %}
+
+    <footer class="bg-dark text-light mt-auto">
+        <div class="container">
+            <div class="row py-3 align-items-center">
+                <!-- Left side: Copyright -->
+                <div class="col-md-6 text-md-start text-center">
+                    <p class="m-0">Copyright © 2025 EZPCReview</p>
+                </div>
+
+                <!-- Right side: Links -->
+                <div class="col-md-6 text-md-end text-center">
+                    <ul class="list-inline m-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light">Contact Us</a>
+                        </li>
+                        <li class="list-inline-item text-light">|</li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light">Site Map</a>
+                        </li>
+                        <li class="list-inline-item text-light">|</li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item text-light">|</li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light">Terms & Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
