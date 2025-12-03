@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <h2>Search Results for "{{ query }}"</h2>
+    
+    <div class="row g-4 mt-3">
+        {% for component in components %}
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <a href="{% url 'component_detail' component.slug %}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm">
+                        {% if component.featured_image %}
+                            <img src="{{ component.featured_image.url }}" class="card-img-top" alt="{{ component.name }}">
+                        {% else %}
+                            <img src="{% static 'images/default.jpg' %}" class="card-img-top" alt="placeholder">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ component.name }}</h5>
+                            <p class="card-text text-truncate">{{ component.description|truncatechars_html:100|safe }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <p>No components match your search.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

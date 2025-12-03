@@ -176,3 +176,14 @@ def comment_delete(request, slug, comment_id):
             request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+
+
+def component_search(request):
+    query = request.GET.get('q', '')
+    components = Component.objects.filter(name__icontains=query) if query else Component.objects.all()
+    
+    context = {
+        "components": components,
+        "query": query,
+    }
+    return render(request, "component/component_search.html", context)

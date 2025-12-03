@@ -66,6 +66,12 @@
                     </li>
                     {% endif %}
                 </ul>
+                {% comment %} Search bar {% endcomment %}
+                <form method="GET" action="{% url 'component_search' %}" class="d-flex m-3 me-3">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Search Components..." aria-label="Search">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                </form>
+
                 <span class="navbar-text text-muted">
                     Review | Compare | Build
                 </span>
