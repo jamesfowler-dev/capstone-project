@@ -162,3 +162,10 @@ footer a.text-light:hover {
     text-decoration: underline;
 }
 
+/* Media queries  */
+
+@media (max-width: 562px) {
+    .hide-mobile {
+        
+    }
+}
