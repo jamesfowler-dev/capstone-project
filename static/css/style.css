@@ -5,7 +5,13 @@ body {
     background-color: #f8f9fa;
     color: #212529;
     line-height: 1.6;
+    padding-top: 20px;
 }
+
+main {
+    margin-top: 20px;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -43,20 +49,22 @@ a {
 
 /* Jumbotron */
 .homepage-jumbotron {
-    background-image: url("{% static 'images/banners/CCL_645_DT_FRACTAL_BANN_1250x515_.png' %}");
+    background-color: #6c757d;
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: auto;
+    min-height: 300px;
     position: relative;
     color: #ffffff;
+    padding: 4rem 1rem; 
 }
 
 .jumbotron-content {
-    background-color: rgba(0, 0, 0, 0.45); /* semi-transparent overlay for readability */
-    padding: 10rem 10rem;
-    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 3rem 2rem;  
     border-radius: 10px;
-    font-family: 'Helvetica Neue', sans-serif;
+    max-width: 90%;
+    margin: 0 auto; 
 }
 
 /* Cards */
@@ -144,3 +152,4 @@ footer a.text-light:hover {
     color: #ffd700; 
     text-decoration: underline;
 }
+

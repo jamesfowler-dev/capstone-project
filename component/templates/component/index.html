@@ -3,17 +3,20 @@
 {% block content %}
 {% load static %}
 
-<!-- Jumbotron Section -->
-<div class="homepage-jumbotron d-flex align-items-center justify-content-center text-center text-white">
-    <div class="jumbotron-content">
-        <h1 class="display-4">Welcome to EZPCReview</h1>
-        <p class="lead">Review | Compare | Build your dream PC</p>
-        <a href="{% url 'home' %}" class="btn btn-secondary btn-lg mt-3">Explore Components</a>
-    </div>
-</div>
 
 <div class="container py-5">
-    <h1 class="text-center mb-5">Hot Picks!</h1>
+
+    <!-- Jumbotron Section -->
+    <div class="homepage-jumbotron d-flex align-items-center justify-content-center text-center text-white">
+        <div class="jumbotron-content">
+            <h1 class="display-4">Welcome to EZPCReview</h1>
+            <p class="lead">Review | Compare | Build your dream PC</p>
+            <a href="{% url 'home' %}" class="btn btn-secondary btn-lg m-3">Explore Components</a>
+        </div>
+    </div>
+    <div class="row m-3 justify-content-center text-center">
+        <h2 class="text-center m-5">PC Components</h2>
+    </div>
     
     <div class="row g-4">
         {% for component in object_list %}
