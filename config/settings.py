@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'component',
     'review',
     'about',
+    'basket',
 ]
 
 SITE_ID = 1

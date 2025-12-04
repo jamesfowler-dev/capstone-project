@@ -23,4 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', include('component.urls')),
+    path('basket/', include('basket.urls', namespace='basket')),
+
 ]

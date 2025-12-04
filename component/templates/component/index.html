@@ -21,22 +21,36 @@
     <div class="row g-4">
         {% for component in object_list %}
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <!-- Wrap the card in a link to the component_detail page -->
-            <a href="{% url 'component_detail' component.slug %}" class="text-decoration-none text-dark">
-                <div class="card h-100 shadow-sm">
+
+            <!-- Wrap the card in a link to the component_detail page -->           
+            <div class="card h-100 shadow-sm">
+                
                     {% if component.featured_image %}
                         <img src="{{ component.featured_image.url }}" class="card-img-top component-img" alt="{{ component.name }}">
                     {% else %}
                         <img src="{% static 'images/EZPC Review.jpg' %}" class="card-img-top" alt="placeholder">
                     {% endif %}
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">{{ component.name }}</h5>
-                        <p class="card-text text-truncate">{{ component.description|truncatechars_html:200|safe }}</p>
-                        <p class="mt-auto fw-bold">${{ component.price }}</p>
-                        <p class="card-text text-truncate">{{ component.category }}</p>
-                    </div>
+
+                <div class="card-body d-flex flex-column">
+                    {% comment %} Card content links to detail page {% endcomment %}
+                    <h5 class="card-title">
+                        <a href="{% url 'component_detail' component.slug %}" class="text-decoration-none text-dark">
+                            {{ component.name }}
+                        </a>
+                    </h5>
+                    <p class="card-text text-truncate"> 
+                        {{ component.description|truncatechars_html:200|safe }}
+                    <p class="mt-auto fw-bold">${{ component.price }}</p>
+                    <p class="card-text text-truncate">{{ component.category }}</p>
+
+                    <!-- Add to Basket button -->
+                    <form method="post" action="{% url 'basket:add_to_basket' component.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary mt-2">Add to Basket</button>
+                    </form>
                 </div>
-            </a>
+            </div>
+            
         </div>
         {% endfor %}
     </div>
