@@ -46,7 +46,11 @@
                     <!-- Add to Basket button -->
                     <form method="post" action="{% url 'basket:add_to_basket' component.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-secondary mt-2">Add to Basket</button>
+                        <button type="submit" class="btn btn-secondary mt-2 add-to-basket-btn"
+                            data-name="{{ component.name }}"
+                            data-price="{{ component.price }}"
+                            data-id="{{ component.id }}">
+                        Add to Basket</button>
                     </form>
                 </div>
             </div>
@@ -54,6 +58,28 @@
         </div>
         {% endfor %}
     </div>
+</div>
+
+<!-- Basket Modal -->
+<div class="modal fade" id="basketModal" tabindex="-1" aria-labelledby="basketModalLabel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="basketModalLabel">Basket</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="basketItems" class="list-group mb-3">
+          <!-- Items will be dynamically added here -->
+        </ul>
+        <p class="fw-bold">Total: $<span id="basketTotal">0</span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="{% url 'basket:view_basket' %}" class="btn btn-primary">Go to Checkout</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <nav aria-label="Page navigation">
@@ -66,6 +92,8 @@
         {% endif %}
     </ul>
 </nav>
+
+<script src="{% static 'js/basket.js' %}"></script>
 
 {% endblock %}
 
