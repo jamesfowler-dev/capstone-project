@@ -7,10 +7,10 @@
 <main class="container py-5">
 
     <!-- Hero/Jumbotron Section -->
-    <section class="homepage-jumbotron d-flex align-items-center justify-content-center text-center text-white">
-        <div class="jumbotron-content d-flex align-items-center justify-content-center">
-            <h1 class="display-4">Welcome to EZPCReview</h1>
-            <p class="lead">Review | Compare | Build your dream PC</p>
+    <section class="homepage-jumbotron d-flex align-items-center justify-content-center text-center">
+        <div class="jumbotron-content container-wide">
+            <h1 class="display-4 museomoderno-regular">Welcome to EZPCReview</h1>
+            <p class="lead m-2">Review | Compare | Build your dream PC</p>
             <a href="{% url 'home' %}#component-section" class="btn btn-secondary btn-lg m-3">Explore Components</a>
         </div>
     </section>
@@ -18,7 +18,9 @@
 
     {% comment %} Section Title {% endcomment %}
     <section class="row m-3 justify-content-center text-center components-section-title">
-        <h2 class="text-center">PC Components</h2>
+        <div class="section-inner">
+            <h2 class="text-center museomoderno-regular m-3">PC Components</h2>
+        </div>
     </section>
     
     {% comment %} Component Grid {% endcomment %}

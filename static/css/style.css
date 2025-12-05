@@ -11,6 +11,21 @@
 
 }
 
+/* Fonts */
+.museomoderno-regular {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.museomoderno-bold {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Base styles */
 
 body {
@@ -74,17 +89,13 @@ a {
 
 /* Jumbotron */
 .homepage-jumbotron {
+    position: relative;
     background-image: url("/static/images/tech-background.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center; 
-    background-color: #6c757d;
-    height: auto;
+    background-position: center;
+    color: #fff;
     min-height: 300px;
-    position: relative;
-    color: #ffffff;
-    padding: 4rem 1rem; 
-    border-radius: 20px;
+    padding: 4rem 1rem;
 }
 
 .homepage-jumbotron::before {
@@ -94,18 +105,21 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.45); /* 45% opacity black overlay */
+    background: rgba(0,0,0,0.45); /* darkens busy background */
     z-index: 1;
 }
 
-.jumbotron-content {
-    background-color: rgba(0, 0, 0, 0.45);
-    padding: 3rem 2rem;  
-    border-radius: 10px;
-    max-width: 90%;
-    margin: 0 auto; 
+.homepage-jumbotron > * {
     position: relative;
+    z-index: 2; /* ensures text is above overlay */
+}
+
+.jumbotron-content {
+    background-color: rgba(0, 0, 0, 0.2); /* just a hint of dark */
+    padding: 3rem 2rem;
+    border-radius: 10px;
     z-index: 2;
+    position: relative;
 }
 
 .components-section-title {
@@ -265,3 +279,17 @@ footer a.text-light:hover {
 
 /* Media queries  */
 767px
+
+
+/* @media (max-width: 992px) {
+  .homepage-jumbotron .lead {
+    display: block;       /* ensure it's a block element */
+    order: 2;             /* move below heading and button */
+  }
+
+  /* .homepage-jumbotron {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+} */ */
