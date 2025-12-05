@@ -11,7 +11,7 @@
         <div class="jumbotron-content container-wide">
             <h1 class="display-4 museomoderno-regular">Welcome to EZPCReview</h1>
             <p class="lead m-2">Review | Compare | Build your dream PC</p>
-            <a href="{% url 'home' %}#component-section" class="btn btn-secondary btn-lg m-3">Explore Components</a>
+            <a href="#components-blog" class="btn btn-secondary btn-lg m-3">Explore Components</a>
         </div>
     </section>
 
@@ -24,7 +24,7 @@
     </section>
     
     {% comment %} Component Grid {% endcomment %}
-    <section class="components-section py-5" aria-label="PC Components List">
+    <section class="components-section py-5" id="components-blog" aria-label="PC Components List">
         <div class="row g-4 container-wide">
             {% for component in object_list %}
             <div class="col-sm-6 col-md-4 col-lg-3">
