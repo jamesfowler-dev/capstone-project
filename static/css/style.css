@@ -181,6 +181,7 @@ a {
     pointer-events: none; 
 }
 
+
 .comment.pending {
     opacity: 0.5;
     pointer-events: none;
