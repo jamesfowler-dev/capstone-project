@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse 
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 from .models import Component
 from review.models import Review, Comment
 from review.forms import ReviewForm, CommentForm
@@ -15,11 +16,16 @@ class ComponentList(generic.ListView):
 
 
 def component_detail(request, slug):
-
     component = get_object_or_404(Component, slug=slug)
 
     # All approved reviews 
-    reviews = component.reviews.filter(status=1)
+    if request.user.is_authenticated:
+        reviews = component.reviews.filter(
+            Q(status=1) | Q(status=0, author=request.user)
+        )
+    else:
+        reviews = component.reviews.filter(status=1)
+
 
     # Collect all comments for all reviews for this component
     comments = Comment.objects.filter(
@@ -42,8 +48,10 @@ def component_detail(request, slug):
                 review.component = component
                 review.author = request.user
                 review.save()
-                messages.success(request, "Review submitted and awaiting approval")
-                return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+                messages.success(
+                    request, "Review submitted and awaiting approval")
+                return HttpResponseRedirect(reverse(
+                    'component_detail', args=[slug]))
 
         # COMMENT SUBMISSION
         elif "comment_form" in request.POST:
@@ -56,7 +64,8 @@ def component_detail(request, slug):
                 comment.author = request.user
                 comment.save()
                 messages.success(request, "Comment submitted!")
-                return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+                return HttpResponseRedirect(reverse(
+                    'component_detail', args=[slug]))
  
     context = {
         "component": component,
@@ -130,7 +139,8 @@ def comment_edit(request, slug, comment_id):
     View to edit a comment
     """
     component = get_object_or_404(Component, slug=slug)
-    comment = get_object_or_404(Comment, pk=comment_id, review__component=component)
+    comment = get_object_or_404(
+        Comment, pk=comment_id, review__component=component)
 
     if request.user != comment.author:
         messages.error(request, "You are not allowed to edit this comment.")
@@ -143,7 +153,8 @@ def comment_edit(request, slug, comment_id):
             edited_comment.approved = False  # Reset approval
             edited_comment.save()
             messages.success(request, "Comment updated! Awaiting approval.")
-            return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+            return HttpResponseRedirect(
+                reverse('component_detail', args=[slug]))
         else:
             messages.error(request, "Error updating comment!")
     else:
@@ -180,7 +191,8 @@ def comment_delete(request, slug, comment_id):
 
 def component_search(request):
     query = request.GET.get('q', '')
-    components = Component.objects.filter(name__icontains=query) if query else Component.objects.all()
+    components = Component.objects.filter(
+        name__icontains=query) if query else Component.objects.all()
     
     context = {
         "components": components,

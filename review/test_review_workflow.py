@@ -30,7 +30,8 @@ class ReviewWorkflowTest(TestCase):
             slug="awesome-gpu",
             status=0
         )
-        expected_str = f"Review of {self.component.name} | written by {self.author.username}"
+        expected_str = f"Review of {self.component.name} | written by {
+            self.author.username}"
         self.assertEqual(str(review), expected_str)
 
     def test_approved_review_visibility(self):
