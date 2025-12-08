@@ -10,7 +10,7 @@
 <html class="h-100" lang="en">
 
 <head>
-    <title>EZPCReview</title>
+    <title>EZPCreview</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Fonts CSS -->
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
 
     {% comment %} Favicon {% endcomment %}
-    <link rel="icon" type="image/png" href="{% static 'images/EZPC.jpg' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/EZPC-review.png' %}">
 
 </head>
 
@@ -40,7 +40,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container-fluid">
             {% comment %} Left-side items {% endcomment %}
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand thin">EZPCreview</span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand-thin museomoderno-bold">
+                EZPCreview</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

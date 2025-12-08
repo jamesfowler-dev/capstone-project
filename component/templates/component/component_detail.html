@@ -66,6 +66,10 @@
                         <p class="text-muted">By {{ review.author.username }} on {{ review.created_on|date:"M d, Y" }}</p>
                         <p>{{ review.content|safe }}</p>
 
+                        {% if user == review.author and review.status == 0 %}
+                            <p class="text-danger"><em>This review is awaiting approval</em></p>
+                        {% endif %}
+
                         {% if user.is_authenticated and review.author == user %}
                             <!-- Edit Review Button -->
                             <a href="{% url 'review_edit' component.slug review.id %}" class="btn btn-primary mt-2">Edit Review</a>
