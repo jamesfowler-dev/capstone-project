@@ -182,9 +182,8 @@ a {
 }
 
 
-.comment.pending {
-    opacity: 0.5;
-    pointer-events: none;
+.faded {
+    opacity: 0.2; 
 }
 
 /* Buttons  */
@@ -226,6 +225,10 @@ a {
     background-color: #BBB4AF;
     border-color: #BBB4AF;
     color: black;
+}
+
+#edit-review-button {
+    
 }
 
 .pagination-buttons {
@@ -276,6 +279,10 @@ footer ul.list-inline li {
 footer a.text-light:hover {
     color: #ffd700; 
     text-decoration: underline;
+}
+
+.card-body a.btn {
+    align-self: flex-start;
 }
 
 /* Media queries  */

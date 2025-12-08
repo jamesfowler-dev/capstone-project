@@ -68,9 +68,7 @@
 
                         {% if user.is_authenticated and review.author == user %}
                             <!-- Edit Review Button -->
-                            <a href="{% url 'review_edit' component.slug review.id %}" class="btn btn-primary mt-2">
-                            Edit Review
-                            </a>
+                            <a href="{% url 'review_edit' component.slug review.id %}" class="btn btn-primary mt-2">Edit Review</a>
 
                             <!-- Delete Review Button -->
                             <form method="post" action="{% url 'review_delete' component.slug review.id %}" style="display:inline;">
@@ -89,16 +87,26 @@
                                 <div class="card-body">
                                     <h3>Comments:</h3>
                                     {% for comment in review.comments.all %}
-                                        {% if comment.approved %}
-                                        <div class="p-2 mb-2 bg-light rounded">
-                                            <strong>{{ comment.author.username }}</strong>
-                                            <small>{{ comment.created_on|date:"M d, Y H:i" }}</small>
+                                        
+                                        <div class="p-2 mb-2 bg-light rounded
+                                            {% if not comment.approved and comment.author == user %}
+                                            faded
+                                            {% elif not comment.approved %}
+                                            d-none
+                                            {% endif %}
+                                        ">
+                                            <p><strong>{{ comment.author.username }}</strong>
+                                            <small>{{ comment.created_on|date:"M d, Y H:i" }}</small></p>
                                             <p id="comment{{ comment.id }}">{{ comment.body|linebreaks }}</p>
+
+                                            {% if user == comment.author and not comment.approved %}
+                                                <p class="text-danger"><em>This comment is awaiting approval</em></p>
+                                            {% endif %}
 
                                             {% if user.is_authenticated and comment.author == user %}
                                                 <!-- Edit Button -->
                                                 <a href="{% url 'comment_edit' component.slug comment.id %}"
-                                                    class="btn btn-primary mt-2">
+                                                    class="btn btn-primary mt-2" id="edit-review-button">
                                                 Edit
                                                 </a>
 
@@ -112,7 +120,7 @@
                                                 </form>
                                             {% endif %}
                                         </div>
-                                        {% endif %}
+                                        
                                     {% empty %}
                                         <p class="text-muted">No comments yet.</p>
                                     {% endfor %}
@@ -124,11 +132,17 @@
                             <div class="col-md-4 card mb-4">
                                 <div class="card-body">
                                     <h3>Leave a comment:</h3>
-                                    <form method="post" id="commentForm" data-slug="{{ component.slug }}">
+
+                                    {% comment %} Unique IDs per review {% endcomment %}
+                                    <form method="post" id="commentForm{{ review.id }}" data-slug="{{ component.slug }}">
                                         {% csrf_token %}
                                         {{ comment_form|crispy }}
+
+                                        {% comment %} Hidden review ID {% endcomment %}
                                         <input type="hidden" name="review_id" value="{{ review.id }}">
-                                        <button type="submit" name="comment_form" id="submitButton" class="btn btn-primary mt-2">
+
+                                        {% comment %} Unique submit button {% endcomment %}
+                                        <button type="submit" name="comment_form" id="submitButton{{ review.id }}" class="btn btn-primary mt-2">
                                             Submit Comment
                                         </button>
                                     </form>
