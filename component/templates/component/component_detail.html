@@ -70,6 +70,7 @@
                             <p class="text-danger"><em>This review is awaiting approval</em></p>
                         {% endif %}
 
+                        {% comment %} Edit and delete buttons {% endcomment %}
                         {% if user.is_authenticated and review.author == user %}
                             <!-- Edit Review Button -->
                             <a href="{% url 'review_edit' component.slug review.id %}" class="btn btn-primary mt-2">Edit Review</a>
@@ -165,7 +166,7 @@
     {% else %}
         <p class="text-muted">No reviews yet. Be the first to write one!</p>
     {% endif %}
-    </div>
+    
 </section>
 
 {% endblock content %}

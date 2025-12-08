@@ -181,9 +181,9 @@ a {
     pointer-events: none; 
 }
 
-.comment.pending {
-    opacity: 0.5;
-    pointer-events: none;
+
+.faded {
+    opacity: 0.2; 
 }
 
 /* Buttons  */
@@ -225,6 +225,10 @@ a {
     background-color: #BBB4AF;
     border-color: #BBB4AF;
     color: black;
+}
+
+#edit-review-button {
+    
 }
 
 .pagination-buttons {
@@ -277,19 +281,24 @@ footer a.text-light:hover {
     text-decoration: underline;
 }
 
+.card-body a.btn {
+    align-self: flex-start;
+}
+
+
 /* Media queries  */
-767px
+/* 767px */
 
 
 /* @media (max-width: 992px) {
   .homepage-jumbotron .lead {
     display: block;       /* ensure it's a block element */
-    order: 2;             /* move below heading and button */
-  }
+    /* order: 2;              */
+  /* } */
 
   /* .homepage-jumbotron {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-} */ */
+} */

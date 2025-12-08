@@ -77,7 +77,8 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'basket:view_basket' %}">Basket
+                            <a class="nav-link" href="{% url 'basket:view_basket' %}">
+                                <i class="fa-solid fa-cart-shopping"></i>
                                 {% if request.session.basket %}
                                     ({{ request.session.basket|length }})
                                 {% endif %}

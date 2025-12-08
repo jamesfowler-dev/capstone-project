@@ -1,5 +1,9 @@
 Welcome to EZPCreview.co.uk, my final capstone project for Code Institute's Full Stack Developement Boot Camp course. 
 
+Developer: James Fowler
+
+![alt text](static/images/home-page.png)
+
 # Table of Contents
 - [Introduction] 
     - [Requirements]
