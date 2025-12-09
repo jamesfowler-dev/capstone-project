@@ -4,10 +4,13 @@ from review.models import Review, Comment
 from component.forms import ReviewForm, CommentForm
 from component.models import Component
 
+
 class ReviewFormTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='tester', password='pass')
-        self.component = Component.objects.create(name='Test GPU', category='GPU', price=100)
+        self.user = User.objects.create_user(
+            username='tester', password='pass')
+        self.component = Component.objects.create(
+            name='Test GPU', category='GPU', price=100)
 
     def test_review_form_valid(self):
         form_data = {'title': 'Amazing GPU', 'content': 'Really loved it!'}
@@ -19,6 +22,7 @@ class ReviewFormTest(TestCase):
         form = ReviewForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('title', form.errors)
+
 
 class CommentFormTest(TestCase):
     def test_comment_form_valid(self):

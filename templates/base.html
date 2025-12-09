@@ -11,7 +11,7 @@
 
 <head>
     <title>EZPCreview</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -54,7 +54,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="about"
+                        <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page"
                             href="{% url 'about' %}">About</a>
                     </li>
 
@@ -74,17 +74,18 @@
                             <li><a class="dropdown-item" href="">Case</a></li>
                         </ul>
                     </li>
+                    
+                    {% comment %} Basket {% endcomment %}
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'basket:view_basket' %}">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                {% if request.session.basket %}
-                                    ({{ request.session.basket|length }})
-                                {% endif %}
-                            </a>
-                        </li>
-                    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'basket:view_basket' %}">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            {% if request.session.basket %}
+                                ({{ request.session.basket|length }})
+                            {% endif %}
+                        </a>
+                    </li>
+
 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -125,7 +126,8 @@
 
     <!-- displaying Django messages -->
     <section class="container">
-        <div class="row">
+        <h2 class="visually-hidden">Site Messages</h2>
+        <div class="row">   
             <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
                 <div class="alert alert-{{ message.tags }} alert-dismissible
@@ -186,7 +188,7 @@
 {% endblock %}
     
 <!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

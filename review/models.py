@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from component.models import Component 
+from component.models import Component
 
 STATUS = ((0, "Draft"), (1, "Published"))
+
 
 class Review(models.Model):
     """
@@ -23,13 +24,11 @@ class Review(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
 
-
-    class Meta: 
+    class Meta:
         ordering = ["-created_on"]
-    
+
     def __str__(self):
         return f"Review of {self.component.name} | written by {self.author}"
-    
 
 
 class Comment(models.Model):
@@ -46,9 +45,8 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
-
     class Meta:
         ordering = ["created_on"]
-    
+
     def __str__(self):
         return f"Comment by {self.author} on {self.review.title}"

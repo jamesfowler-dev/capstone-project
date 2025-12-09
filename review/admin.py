@@ -7,6 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 admin.site.register(Comment)
 
+
 @admin.register(Review)
 class PostAdmin(SummernoteModelAdmin):
     """

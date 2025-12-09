@@ -357,6 +357,10 @@ A link is available to bring you back to the home page.
 
 ### Future Implementations
 
+More components with seperate pages for category
+Database basket system to provide user-specific baskets 
+Compare 2 or more components 
+Implement purchase system
 
 ## Accessibility
 
@@ -403,24 +407,91 @@ Validation:
 
 ## AI Implementation
 
-User story creation
+AI played a significant role throughout the development of this project and became a valuable tool during the entire lifecycle of EZPC Review. It allowed me to speed up repetitive tasks and prototype features more efficiently. For example, once I had working code for the review and comment system, I could use AI to help adapt that structure to other areas of the site, such as the basket system or component listings, since the logic and layout followed similar patterns. AI also helped me quickly scaffold pages using Bootstrap, refine layouts, and experiment with new functionality without slowing down the development process.
 
-Code creation, 
+### User Story creation 
 
-Debugging, 
+AI helped structure and refine initial user stories by suggesting clear user goals and actions based on the project requirements. It further helped convert rough ideas into well-defined user stories that aligned with real-world behaviour.
 
-Performance and experience 
+### Code Assistance
 
-Deployment process
+AI was used in several parts of the codebase to support learning and problem-solving. While AI often provided helpful starting points—such as generating Django views, form logic or template loops, it also required careful review. At times, it introduced incorrect assumptions or redundant code, so having a solid understanding of Django and Python was essential to identify mistakes and correct them.
 
-Co-Pilot and ChatGPT were used to troubleshoot and suggest fixes for issues throughout.
+### Debugging and Learning
 
-Typical use was sumple syntax reminders or attribute functions.
+AI was particularly helpful when debugging unexpected behaviour or complex error codes. It helped explain specififc error messages, identify likely causes and suggest different approaches to resolve issues. This made it a useful learning tool and avoid unecessary frustration especially when working with more complex Django features or template logic. However, it wasn’t perfect and some suggestions went in the wrong direction or needed refinement, so critical thinking was still key. 
+
+Overall, AI was an excellent support tool and provided significant benefits towards realising the vision of this project especially for repetitive tasks and troubleshooting. It also proved that it’s not a substitute for a knowledgeable developer, as human oversight was essential to ensure correct, efficient, and maintainable code.
+
+### Performance 
+
+AI assisted in identifying potential performance bottlenecks such as large image sizes and caching strategies. The load time impact from static files also saved time during development and reduced trial-and-error performance testing.
+
+
+
+
 
 ## Deployment
 
 
-## Testing
+## Testing & Validation
+
+### Python validation
+
+<details>
+<summary>Config/Project level:</summary>
+
+![image of config-asgi](docs/images/python-validation/asgi-python-validation.png)
+![image of config-manage](docs/images/python-validation/manage-py-validation.png)
+![image of config-urls](docs/images/python-validation/urls.py-project-level-validation.png)
+![image of config-wsgi](docs/images/python-validation/wsgi-validation.png)
+
+</details>
+
+<details>
+<summary>About:</summary>
+
+![image of about-admin](docs/images/python-validation/about-admin-py-validation.png)
+![image of about-forms](docs/images/python-validation/about-forms-py-validation.png)
+![image of about-models](docs/images/python-validation/about-models-py-validation.png)
+![image of about-test_forms](docs/images/python-validation/about-test-forms-py-validation.png)
+![image of about-urls](docs/images/python-validation/about-urls-py-validation.png)
+![image of about-views](docs/images/python-validation/about-views-py-validation.png)
+
+</details>
+
+<details>
+<summary>Basket:</summary>
+
+![image of basket-urls](docs/images/python-validation/basket-urls-py-validation.png)
+![image of basket-views](docs/images/python-validation/basket-views-py-validation.png)
+
+</details>
+
+<details>
+<summary>Component:</summary>
+
+![image of component-admin](docs/images/python-validation/component-admin-py-validation.png)
+![image of component-forms](docs/images/python-validation/component-forms-py-validation.png)
+![image of component-models](docs/images/python-validation/component-models-py-validation.png)
+![image of component-test_forms](docs/images/python-validation/component-test-forms-py-validation.png)
+![image of component-test_views](docs/images/python-validation/component-test-views-validation.png)
+![image of component-urls](docs/images/python-validation/component-urls-py-validation.png)
+![image of component-views](docs/images/python-validation/component-views-py-validation.png)
+
+</details>
+
+<details>
+<summary>Review: </summary>
+
+![image of review-admin](docs/images/python-validation/review-admin-py-validation.png)
+![image of review-forms](docs/images/python-validation/review-forms-py-validation.png)
+![image of review-models](docs/images/python-validation/review-models-py-validation.png)
+
+</details>
+
+
+
 
 
 

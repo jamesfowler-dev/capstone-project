@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from component.models import Component
 from django.contrib import messages
 
+
 def view_basket(request):
     basket = request.session.get('basket', {})
     components = []
@@ -26,16 +27,18 @@ def view_basket(request):
             basket.pop(comp_id_str)
             request.session['basket'] = basket
             messages.warning(
-                request, "A component in your basket no longer exists and was removed.")
+                request, "A component in your basket"
+                " no longer exists and was removed.")
 
     return render(request, 'basket/view_basket.html', {
         'components': components,
         'total': total
     })
 
+
 def add_to_basket(request, component_id):
     component = get_object_or_404(Component, id=component_id)
-    
+
     basket = request.session.get('basket', {})
 
     # Increment quantity if already in basket
@@ -46,7 +49,7 @@ def add_to_basket(request, component_id):
 
     request.session["basket"] = basket
     messages.success(request, f"Added {component.name} to your basket.")
-    return redirect(request.META.get('HTTP_REFERER', 'home'))   
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
 
 
 def update_basket(request, component_id):
@@ -64,6 +67,7 @@ def update_basket(request, component_id):
 
     messages.success(request, 'Basket updated successfully.')
     return redirect("basket:view_basket")
+
 
 def remove_from_basket(request, component_id):
     basket = request.session.get('basket', {})

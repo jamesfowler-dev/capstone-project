@@ -5,7 +5,6 @@ from component.views import CommentForm, ReviewForm
 from .models import Component
 
 
-
 class TestComponentViews(TestCase):
 
     def setUp(self):
@@ -23,13 +22,14 @@ class TestComponentViews(TestCase):
             category="GPU",
             description="Component content"
         )
-        
-       # Log in the user
+
+        # Log in the user
         self.client.login(username="myUsername", password="myPassword")
 
     def test_render_component_detail_with_forms(self):
         # Get the detail page
-        response = self.client.get(reverse('component_detail', args=[self.component.slug]))
+        response = self.client.get(
+            reverse('component_detail', args=[self.component.slug]))
 
         # Check response
         self.assertEqual(response.status_code, 200)
@@ -39,4 +39,3 @@ class TestComponentViews(TestCase):
         # Ensure forms are in context
         self.assertIsInstance(response.context['comment_form'], CommentForm)
         self.assertIsInstance(response.context['review_form'], ReviewForm)
-
