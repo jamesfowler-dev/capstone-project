@@ -27,13 +27,13 @@
     </div>
 </header>
 
-<main class="container mt-4">
+<div class="container mt-4">
 
     <!-- Component Description -->
     <div class="row">
         <div class="col card mb-4 mt-3 left top">
             <div class="card-body">
-                <p>{{ component.description|safe }}</p>
+                {{ component.description|safe }}
             </div>
         </div>
     </div>
@@ -55,120 +55,120 @@
     {% endif %}
 
     <!-- Reviews Section -->
-<section>     
-    <h2 class="mt-5">Reviews</h2>
-    {% if reviews %}
-        {% for review in reviews %}
-            <div class="row">
-                <div class="col card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ review.title }}</h5>
-                        <p class="text-muted">By {{ review.author.username }} on {{ review.created_on|date:"M d, Y" }}</p>
-                        <p>{{ review.content|safe }}</p>
+    <section>     
+        <h2 class="mt-5">Reviews</h2>
+        {% if reviews %}
+            {% for review in reviews %}
+                <div class="row">
+                    <div class="col card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ review.title }}</h5>
+                            <p class="text-muted">By {{ review.author.username }} on {{ review.created_on|date:"M d, Y" }}</p>
+                            <p>{{ review.content|safe }}</p>
 
-                        {% if user == review.author and review.status == 0 %}
-                            <p class="text-danger"><em>This review is awaiting approval</em></p>
-                        {% endif %}
-
-                        {% comment %} Edit and delete buttons {% endcomment %}
-                        {% if user.is_authenticated and review.author == user %}
-                            <!-- Edit Review Button -->
-                            <a href="{% url 'review_edit' component.slug review.id %}" class="btn btn-primary mt-2">Edit Review</a>
-
-                            <!-- Delete Review Button -->
-                            <form method="post" action="{% url 'review_delete' component.slug review.id %}" style="display:inline;">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger mt-2"
-                                        onclick="return confirm('Are you sure you want to delete this review?')">
-                                    Delete Review
-                                </button>
-                            </form>
-                        {% endif %}
-
-                        <!-- Comments for this review -->
-                        <div class="row mt-3">
-                            <!-- Existing Comments -->
-                            <div class="col-md-8 card mb-4">
-                                <div class="card-body">
-                                    <h3>Comments:</h3>
-                                    {% for comment in review.comments.all %}
-                                        
-                                        <div class="p-2 mb-2 bg-light rounded
-                                            {% if not comment.approved and comment.author == user %}
-                                            faded
-                                            {% elif not comment.approved %}
-                                            d-none
-                                            {% endif %}
-                                        ">
-                                            <p><strong>{{ comment.author.username }}</strong>
-                                            <small>{{ comment.created_on|date:"M d, Y H:i" }}</small></p>
-                                            <p id="comment{{ comment.id }}">{{ comment.body|linebreaks }}</p>
-
-                                            {% if user == comment.author and not comment.approved %}
-                                                <p class="text-danger"><em>This comment is awaiting approval</em></p>
-                                            {% endif %}
-
-                                            {% if user.is_authenticated and comment.author == user %}
-                                                <!-- Edit Button -->
-                                                <a href="{% url 'comment_edit' component.slug comment.id %}"
-                                                    class="btn btn-primary mt-2" id="edit-review-button">
-                                                Edit
-                                                </a>
-
-                                                <!-- Delete Button -->
-                                                <form method="post" action="{% url 'comment_delete' component.slug comment.id %}" style="display:inline;">
-                                                    {% csrf_token %}
-                                                    <button type="submit" class="btn btn-danger mt-2"
-                                                            onclick="return confirm('Are you sure you want to delete this comment?')">
-                                                        Delete
-                                                    </button>
-                                                </form>
-                                            {% endif %}
-                                        </div>
-                                        
-                                    {% empty %}
-                                        <p class="text-muted">No comments yet.</p>
-                                    {% endfor %}
-                                </div>
-                            </div>
-
-                            <!-- Comment Form -->
-                            {% if user.is_authenticated %}
-                            <div class="col-md-4 card mb-4">
-                                <div class="card-body">
-                                    <h3>Leave a comment:</h3>
-
-                                    {% comment %} Unique IDs per review {% endcomment %}
-                                    <form method="post" id="commentForm{{ review.id }}" data-slug="{{ component.slug }}">
-                                        {% csrf_token %}
-                                        {{ comment_form|crispy }}
-
-                                        {% comment %} Hidden review ID {% endcomment %}
-                                        <input type="hidden" name="review_id" value="{{ review.id }}">
-
-                                        {% comment %} Unique submit button {% endcomment %}
-                                        <button type="submit" name="comment_form" id="submitButton{{ review.id }}" class="btn btn-primary mt-2">
-                                            Submit Comment
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                            {% else %}
-                            <p>
-                                <a href="{% url 'account_login' %}?next={{ request.path }}">Log in</a> to leave a comment.
-                            </p>
+                            {% if user == review.author and review.status == 0 %}
+                                <p class="text-danger"><em>This review is awaiting approval</em></p>
                             {% endif %}
+
+                            {% comment %} Edit and delete buttons {% endcomment %}
+                            {% if user.is_authenticated and review.author == user %}
+                                <!-- Edit Review Button -->
+                                <a href="{% url 'review_edit' component.slug review.id %}" class="btn btn-primary mt-2">Edit Review</a>
+
+                                <!-- Delete Review Button -->
+                                <form method="post" action="{% url 'review_delete' component.slug review.id %}" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger mt-2"
+                                            onclick="return confirm('Are you sure you want to delete this review?')">
+                                        Delete Review
+                                    </button>
+                                </form>
+                            {% endif %}
+
+                            <!-- Comments for this review -->
+                            <div class="row mt-3">
+                                <!-- Existing Comments -->
+                                <div class="col-md-8 card mb-4">
+                                    <div class="card-body">
+                                        <h3>Comments:</h3>
+                                        {% for comment in review.comments.all %}
+                                            
+                                            <div class="p-2 mb-2 bg-light rounded
+                                                {% if not comment.approved and comment.author == user %}
+                                                faded
+                                                {% elif not comment.approved %}
+                                                d-none
+                                                {% endif %}
+                                            ">
+                                                <p><strong>{{ comment.author.username }}</strong>
+                                                <small>{{ comment.created_on|date:"M d, Y H:i" }}</small></p>
+                                                <div id="comment{{ comment.id }}">{{ comment.body|linebreaks }}</div>
+
+                                                {% if user == comment.author and not comment.approved %}
+                                                    <p class="text-danger"><em>This comment is awaiting approval</em></p>
+                                                {% endif %}
+
+                                                {% if user.is_authenticated and comment.author == user %}
+                                                    <!-- Edit Button -->
+                                                    <a href="{% url 'comment_edit' component.slug comment.id %}"
+                                                        class="btn btn-primary mt-2" id="edit-review-button">
+                                                    Edit
+                                                    </a>
+
+                                                    <!-- Delete Button -->
+                                                    <form method="post" action="{% url 'comment_delete' component.slug comment.id %}" style="display:inline;">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger mt-2"
+                                                                onclick="return confirm('Are you sure you want to delete this comment?')">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                {% endif %}
+                                            </div>
+                                            
+                                        {% empty %}
+                                            <div class="text-muted">No comments yet.</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <!-- Comment Form -->
+                                {% if user.is_authenticated %}
+                                <div class="col-md-4 card mb-4">
+                                    <div class="card-body">
+                                        <h3>Leave a comment:</h3>
+
+                                        {% comment %} Unique IDs per review {% endcomment %}
+                                        <form method="post" id="commentForm{{ review.id }}" data-slug="{{ component.slug }}">
+                                            {% csrf_token %}
+                                            {{ comment_form|crispy }}
+
+                                            {% comment %} Hidden review ID {% endcomment %}
+                                            <input type="hidden" name="review_id" value="{{ review.id }}">
+
+                                            {% comment %} Unique submit button {% endcomment %}
+                                            <button type="submit" name="comment_form" id="submitButton{{ review.id }}" class="btn btn-primary mt-2">
+                                                Submit Comment
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <p>
+                                    <a href="{% url 'account_login' %}?next={{ request.path }}">Log in</a> to leave a comment.
+                                </p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    {% else %}
-        <p class="text-muted">No reviews yet. Be the first to write one!</p>
-    {% endif %}
-    
-</section>
-
+            {% endfor %}
+        {% else %}
+            <p class="text-muted">No reviews yet. Be the first to write one!</p>
+        {% endif %}
+        
+    </section>
+</div>
 {% endblock content %}
 
 {% block extras %}
