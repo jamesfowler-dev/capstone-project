@@ -438,6 +438,8 @@ AI assisted in identifying potential performance bottlenecks such as large image
 
 ### Python validation
 
+All pages are clear of any errors and pass PEP8 standard:
+
 <details>
 <summary>Config/Project level:</summary>
 
@@ -490,6 +492,61 @@ AI assisted in identifying potential performance bottlenecks such as large image
 
 </details>
 
+
+### HTML validation
+
+All pages are clear of any errors except for an issue on component_detail.html
+
+<details>
+<summary>index.html</summary>
+
+![image of index page](docs/images/html-validation/index-passed-validation.png)
+
+</details>
+
+<details>
+<summary>component_detail.html</summary>
+
+
+
+</details>
+
+<details>
+<summary>component_search.html</summary>
+
+
+
+
+</details>
+
+<details>
+<summary>about.html</summary>
+
+![image of about page](docs/images/html-validation/about-html-passed-validation.png)
+
+</details>
+
+<details>
+<summary>view_basket.html</summary>
+
+![image of view_basket page](docs/images/html-validation/view_basket-html-passed-validation.png)
+
+</details>
+
+
+<details>
+<summary>base.html</summary>
+
+
+</details>
+
+<details>
+<summary>login-modal</summary>
+
+![image of login modeal](docs/images/html-validation/login-modal-passed-validation.png)
+
+
+</details>
 
 
 

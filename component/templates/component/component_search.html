@@ -16,7 +16,7 @@
                             <img src="{% static 'images/default.jpg' %}" class="card-img-top" alt="placeholder">
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ component.name }}</h5>
+                            <h5 class="card-title btn btn-secondary btn-sm text-decoration-none text-dark">{{ component.name }}</h5>
                             <p class="card-text text-truncate">{{ component.description|truncatechars_html:100|safe }}</p>
                         </div>
                     </div>
