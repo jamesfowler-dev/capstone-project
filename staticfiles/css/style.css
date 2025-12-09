@@ -62,6 +62,10 @@ a {
     border-radius: 4px; /* optional */
 }
 
+.img-75 {
+    width: 75%;
+}
+
 /* Header */
 
 .masthead {
