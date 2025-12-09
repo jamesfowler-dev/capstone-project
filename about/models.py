@@ -21,8 +21,9 @@ class NewsletterRequest(models.Model):
     """
     name = models.CharField(max_length=200)
     email = models.EmailField()
-    message = models.TextField()  
+    message = models.TextField()
     read = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Sign {self.name} up for the latest news!"
+    

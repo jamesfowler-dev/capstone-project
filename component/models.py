@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
+
+
 class Component(models.Model):
 
     CATEGORY_CHOICES = [
@@ -25,8 +27,9 @@ class Component(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     featured_image = CloudinaryField('image', default='placeholder')
 
-    class Meta: 
+    class Meta:
         ordering = ["-created_on"]
-    
+
     def __str__(self):
         return f"{self.name} | {self.price}"
+    

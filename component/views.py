@@ -9,6 +9,7 @@ from review.forms import ReviewForm, CommentForm
 
 # Create your views here.
 
+
 class ComponentList(generic.ListView):
     queryset = Component.objects.all()
     template_name = "component/index.html"
@@ -18,14 +19,13 @@ class ComponentList(generic.ListView):
 def component_detail(request, slug):
     component = get_object_or_404(Component, slug=slug)
 
-    # All approved reviews 
+    # All approved reviews
     if request.user.is_authenticated:
         reviews = component.reviews.filter(
             Q(status=1) | Q(status=0, author=request.user)
         )
     else:
         reviews = component.reviews.filter(status=1)
-
 
     # Collect all comments for all reviews for this component
     comments = Comment.objects.filter(
@@ -66,7 +66,7 @@ def component_detail(request, slug):
                 messages.success(request, "Comment submitted!")
                 return HttpResponseRedirect(reverse(
                     'component_detail', args=[slug]))
- 
+
     context = {
         "component": component,
         "reviews": reviews,
@@ -99,7 +99,8 @@ def review_edit(request, slug, review_id):
             edited_review.status = 0  # Reset approval
             edited_review.save()
             messages.success(request, "Review updated! Awaiting approval.")
-            return HttpResponseRedirect(reverse('component_detail', args=[slug]))
+            return HttpResponseRedirect(
+                reverse('component_detail', args=[slug]))
         else:
             messages.error(request, "Error updating review!")
     else:
@@ -118,7 +119,7 @@ def review_edit(request, slug, review_id):
 
 def review_delete(request, slug, review_id):
     """
-    Delete a review belonging to a component 
+    Delete a review belonging to a component
     """
     component = get_object_or_404(Component, slug=slug)
     review = get_object_or_404(
@@ -193,7 +194,7 @@ def component_search(request):
     query = request.GET.get('q', '')
     components = Component.objects.filter(
         name__icontains=query) if query else Component.objects.all()
-    
+
     context = {
         "components": components,
         "query": query,

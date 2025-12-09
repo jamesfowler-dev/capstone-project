@@ -2,7 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.ComponentList.as_view(), name='home'),
+    path(
+        '', 
+        views.ComponentList.as_view(),
+        name='home',
+    ),
     path('component/<slug:slug>/', 
         views.component_detail, name='component_detail'),
     path('component/<slug:slug>/edit_review/<int:review_id>/',
