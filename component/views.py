@@ -47,7 +47,15 @@ def component_detail(request, slug):
                 review = review_form.save(commit=False)
                 review.component = component
                 review.author = request.user
+
+                # <-- to make sure unique id -->    
+                review.slug = f"temp-{review.author.id}-{component.id}-{
+                    Review.objects.count() + 1}"
                 review.save()
+
+                review.slug = f"{component.slug}-review-{review.id}"
+                review.save(update_fields=['slug'])
+
                 messages.success(
                     request, "Review submitted and awaiting approval")
                 return HttpResponseRedirect(reverse(
