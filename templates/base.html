@@ -49,7 +49,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="home-page"
                             href="{% url 'home' %}">Home</a>
                     </li>
 
@@ -78,7 +78,7 @@
                     {% comment %} Basket {% endcomment %}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'basket:view_basket' %}">
+                        <a class="nav-link" href="{% url 'basket:view_basket' %}" aria-label="View Basket">
                             <i class="fa-solid fa-cart-shopping"></i>
                             {% if request.session.basket %}
                                 ({{ request.session.basket|length }})

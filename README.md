@@ -104,9 +104,18 @@ There were 8 main criteria for this project:
 
 <br>
 
-# Structure & Comcept
+# Structure & Concept
 
 The application is structured into multiple Django apps: home, component, review, and basket to keep each core feature logically separated and easy to maintain. This modular approach ensures that component browsing, user reviews, and e-commerce functionality remain cleanly organised and independently scalable. The website opens on the home page, where users can browse featured PC components and navigate through clearly defined categories. Selecting a component brings the user to a detailed product page that displays specifications, pricing, approved user reviews, and any reviews awaiting moderation by their authors. The review system supports full CRUD functionality and comment threads, enabling users to actively engage with each component. Alongside this, the basket app allows users to add components to a session-based shopping basket, view their selections, and adjust quantities before checkout. Throughout development, the structure evolved to prioritise usability, maintainability, and clear separation of concerns, ensuring that each part of the site performs its role efficiently while contributing to a cohesive overall user experience.
+
+
+
+<details>
+    <summary>ORM Model:</summary>
+
+![image of ORM model](docs/images/ORM.png)
+
+</details>
 
 ## User Experience (UX)
 
@@ -116,49 +125,49 @@ Wireframes were made for each display size and are shown below. The pages were d
   <summary>Index/Home page (Click to expand)</summary>
 
 
-![image of home page](docs/images/wireframe-index-page.png)
+![image of home page](docs/images/wireframes/wireframe-index-page.png)
 
 </details>
 
 <details>
   <summary>Component detail page (Click to expand)</summary>
 
-![image of component detail page](docs/images/wireframe-component-detail-page.png)
+![image of component detail page](docs/images//wireframes/wireframe-component-detail-page.png)
 
 </details>
 
 <details>
   <summary>About page (Click to expand)</summary>
 
-![image of About page](docs/images/wireframe-about-page.png)
+![image of About page](docs/images/wireframes/wireframe-about-page.png)
 
 </details>
 
 <details>
   <summary>Basket (Click to expand)</summary>
 
-![image of the basket](docs/images/wireframe-basket.png)
+![image of the basket](docs/images/wireframes/wireframe-basket.png)
 
 </details>
 
 <details>
   <summary>Login page/modal (Click to expand)</summary>
 
-![image of login modal](docs/images/wireframe-login.png)
+![image of login modal](docs/images/wireframes/wireframe-login.png)
 
 </details>
 
 <details>
   <summary>Register page (Click to expand)</summary>
 
-![image of Register page](docs/images/wireframe-register-page.png)
+![image of Register page](docs/images//wireframes/wireframe-register.png)
 
 </details>
 
 <details>
   <summary>Search results page (Click to expand)</summary>
 
-![image of Search results page](docs/images/wireframe-register-page.png)
+![image of Search results page](docs/images/wireframes/wireframe-search.png)
 
 </details>
 
@@ -274,6 +283,22 @@ Compare 2 components (Could-do):
 
 ## Design
 
+### Color Scheme
+
+The colour scheme that I chose was based on the main hero image. The idea was to include interesting colours that also suited a technical theme. 
+
+![image of color scheme](docs/images/color-scheme.png)
+
+### Font
+
+Google fonts were used, mainly MuseoModerno with Helvetica Neue for headings. 
+
+![image of font theme](docs/images/font.png)
+
+<detail>
+    ![image of kanban board](docs/images/kanban-board.png)
+</detail>
+
 ### UI/UX
 
 For the UI/UX design of EZPC Review, I focused on creating a clean, modern interface that supports easy navigation and a visually engaging browsing experience. The layout uses a combination of Bootstrap structure and custom styling, with card-based components used throughout the site to present PC components, reviews, and user-generated content in a consistent and readable format. This helps organise information clearly and provides a familiar visual hierarchy for users. I selected a cool-toned colour palette, featuring subtle gradients and high-contrast text to improve readability and maintain accessibility. Key interactive elements, such as review buttons, forms, and navigation links, are styled to stand out without overwhelming the page. I also ensured the site is fully responsive, with flexible layouts using Flexbox and Bootstrap breakpoints so that users on mobile, tablet, and desktop screens have an equally smooth experience. Across the site, emphasis was placed on usability from clear call-to-action buttons to intuitive form layouts ensuring users can review components, leave feedback, and browse content without friction.
@@ -288,11 +313,9 @@ The Agile framework was used throughout the development lifecycle, following the
 [Link to Kanban project board](https://github.com/users/jamesfowler-dev/projects/7/views/1)
 
 
-### Color Scheme
-
-### Typography
-
 ### Imagery
+
+
 
 ## Features
 
@@ -304,65 +327,123 @@ All Pages on the website are responsive and have:
 
     Users can explore a collection of PC components—such as CPUs, GPUs, SSDs, RAM, and more each with its own dedicated detail page. Components include descriptions, pricing, images, and category information.
 
-- **Write & Manage Reviews**
+<details>
+    <summary>Click to view</summary>
+
+![image of browsing components](docs/images/features/browse-components.png)
+
+</details>
+
+
+-  **Write & Manage Reviews**
 
     Logged-in users can create written reviews for individual components, edit their existing reviews or delete their reviews. They can see an "Awaiting Approval" message when a review is pending moderation. This makes the review system transparent and gives users full control over their contributions.
+
+<details>
+    <summary>Click to view</summary>
+
+![image of review functionality](docs/images/features/write-review.png)
+![image of review functionality](docs/images/features/review-pending-approval.png)
+
+</details>
 
 - **Comment on Reviews**
 
     Users can engage with the community by commenting on reviews. Features include posting comments on any review, editing or deleting their own comments in a clean and threaded comment layout tied to specific reviews. Visibility rules so unapproved comments only show to their authors. 
 
+
+<details>
+    <summary>Click to view</summary>
+
+![image of edit functionality](docs/images/features/edit-comments.png)
+
+</details>
+
 - **Moderated Review & Comment System**
 
     To maintain content quality, admins approve or reject reviews and comments. Unapproved content is hidden from general users but authors can still see their own pending submissions. 
+
+<details>
+    <summary>Click to view</summary>
+
+![image of pending edit functionality](docs/images/features/pending-edit.png)
+
+</details>
 
 - **Basket System (Add & Manage Components)**
 
     The site includes a simple but functional basket system where users can add components to a basket, view basket contents, update quantities and remove items. This allows users to build a hypothetical PC parts list as they browse.
 
+
+<details>
+    <summary>Click to view</summary>
+
+![image of basket functionality](docs/images/features/basket.png)
+
+</details>
+
 - **User Authentication**
 
     Using Django AllAuth, users can register for an account, log in and log out, access restricted features such as reviews, editing, and commenting. Redirects ensure users return to their original page after login. 
+    
+
+<details>
+    <summary>Click to view</summary>
+
+![image of registration](docs/images/features/register.png)
+![image of sign-in](docs/images/features/login-modal.png)
+
+</details>
 
 - **Responsive & Accessible Design**
 
     The site is fully responsive and adapts to mobiles, tablets, and desktops. Built with Bootstrap and custom CSS, the site offers clear and consistent layout, a colour scheme chosen for readability, accessible contrast ratios and semantic HTML structure. 
 
+<details>
+    <summary>Click to view</summary>
+
+![image of desktop](docs/images/features/home-page.png)
+![image of tablet](docs/images/features/home-page-tablet-view.png)
+![image of mobile](docs/images/features/mobile-view.png)
+
+</details>
+
 - **Search & Navigation**
 
     Users can easily navigate through the home page with featured components, individual component detail pages, review and comment sections.
+
+
+<details>
+    <summary>Click to view</summary>
+
+![image of search result](docs/images/features/search-view.png)
+
+</details>
 
 - **Admin Management**
 
     Superusers have access to a custom admin interface for managing reviews, including actions such as approving comments/reviews and delete.  
 
+<details>
+    <summary>Click to view</summary>
 
+![image of admin panel](docs/images/features/admin-panel.png)
+![image of admin controls](docs/images/features/admin-controls.png)
 
-
-### The Home Page
-
-
-
-### The About Page
-
-
-### The Login Page
-
-
-
-### The Success Page
-
-A link is available to bring you back to the home page.
+</details>
 
 
 ### Future Implementations
 
-More components with seperate pages for category
-Database basket system to provide user-specific baskets 
-Compare 2 or more components 
-Implement purchase system
+Given more time, I would be keen to expand the project with a view to evolving the site into a comprehensive site to explore pc building. Specifically new features could include:
+
+-  More components with seperate pages for category
+-  Database basket system to provide user-specific baskets 
+-  Compare 2 or more components 
+-  Implement purchase system
 
 ## Accessibility
+
 
 
 ## Technologies Used
@@ -397,9 +478,6 @@ Validation:
 - JShint
 - CI Python Liner(PEP8)
 - Lighthouse
-- Wave ValidatorValidation:
-- WC3 Validator
-- Jigsaw W3 Validator
 - JShint
 - CI Python Liner(PEP8)
 - Lighthouse
@@ -433,8 +511,32 @@ AI assisted in identifying potential performance bottlenecks such as large image
 
 ## Deployment
 
+### Heroku Deployment
+
+-  [Herouku](https://www.heroku.com/) (Ctrl + click)
+
+This application has been deployed from GitHub to Heroku. A guide to deploying to Heroku can be found here 
+
+Here are the steps to deployment:
+
+Login or create an account at Heroku
+
+### Clone Repository
+You can clone the repository by following these steps:
+
+- Go to the GitHub repository
+- Locate the Code button above the list of files and click it
+- Select if you prefere to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the - URL to your clipboard
+- Open Git Bash
+- Change the current working directory to the one where you want the cloned directory
+- Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY) 
+- Press Enter to create your local clone.
 
 ## Testing & Validation
+
+### Lighthouse testing
+
+
 
 ### Python validation
 
@@ -538,6 +640,7 @@ All pages are clear of any errors except for an issue on component_detail.html
 <summary>base.html</summary>
 
 
+
 </details>
 
 <details>
@@ -548,15 +651,52 @@ All pages are clear of any errors except for an issue on component_detail.html
 
 </details>
 
+### CSS Validation 
+
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. No errors were found.  
+
+<details>
+<summary>test results</summary>
+
+![image of style sheet](docs/images/css-validation.png)
+
+</details>
 
 
+### JavaScript Validation
+JSHint javaScript Validation Service was used to validate all javaScript files. comment.js had a minor warning but nothing that would impact functionality.
+
+"Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (button)"
+
+<details>
+
+![image of comment.js](docs/images/comment-js-validation.png)
+
+</details>
+
+
+basket.js passed with no errors
+
+<details>
+
+![image of basket.js](docs/images/basket-js-validation.png)
+
+</details>
 
 
 ### Known bugs
 
+-  Components in the navbar is not functional at present
+-  Navbar can hand at times on opening in mobile view
+
 
 ## Credits/References
 
+-  Code Insitute - For providing the training to build this website
+-  Bootstrap - For the responsive site layout tools
+-  Favicon - Favicon generation
+-  Google Fonts - Font library used
+-  Cloudinary - Image hosting
 
 
 ### Acknowledgments

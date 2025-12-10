@@ -40,11 +40,11 @@
 
                     <div class="card-body d-flex flex-column">
                         {% comment %} Card content links to detail page {% endcomment %}
-                        <h5 class="card-title">
+                        <h3 class="card-title">
                             <a href="{% url 'component_detail' component.slug %}" class="btn btn-secondary btn-sm text-decoration-none text-dark">
                                 {{ component.name }}
                             </a>
-                        </h5>
+                        </h3>
                         <p class="card-text text-truncate"> 
                             {{ component.description|truncatechars_html:200|safe }}
                         <p class="mt-auto fw-bold">${{ component.price }}</p>
