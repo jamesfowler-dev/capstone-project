@@ -90,6 +90,87 @@ The application is structured into multiple Django apps: home, component, review
 
 </details>
 
+## Models
+
+<details> 
+    <summary>About</summary>
+
+
+| Key | Name | Type |
+| ----------- | ----------- | ----------- |
+| Primary Key | id | AutoField |
+|  | title | CharField (max_length=200) |
+|  | updated_on | DateTimeField (auto_now=True) |
+|  | content | TextField |
+
+</details>
+
+
+<details> 
+    <summary>NewsletterRequest</summary>
+
+| Key | Name | Type |
+| ----------- | ----------- | ----------- |
+| Primary Key | id | AutoField |
+|  | name | CharField (max_length=200) |
+|  | email | EmailField |
+|  | message | TextField |
+|  | read | BooleanField (default=False) |
+
+</details>
+
+
+<details> 
+    <summary>Component</summary>
+
+| Key | Name | Type |
+| ----------- | ----------- | ----------- |
+| Primary Key | id | AutoField |
+|  | name | CharField (max_length=255) |
+|  | slug | SlugField (max_length=200, unique=True) |
+|  | price | DecimalField (max_digits=8, decimal_places=2) |
+|  | category | CharField (max_length=20, choices=CATEGORY_CHOICES) |
+|  | description | TextField (blank=True) |
+|  | created_on | DateTimeField (auto_now_add=True)|
+|  | featured_image | CloudinaryField('image', default='placeholder') |
+
+</details>
+
+
+<details> 
+    <summary>Review</summary>
+
+| Key | Name | Type |
+| ----------- | ----------- | ----------- |
+| Primary Key | id | AutoField |
+|  | title | CharField(max_length=200, unique=True) |
+|  | slug | SlugField(max_length=200, unique=True) |
+| Foreign Key | component | ForeignKey to Component (on_delete=CASCADE, related_name="reviews") |
+| Foreign Key  | author | ForeignKey to User (on_delete=CASCADE) |
+|  | featured_image | CloudinaryField |
+|  | content | TextField |
+|  | created_on | DateTimeField(auto_now_add=True) |
+|  | status | IntegerField(choices=STATUS, default=0) |
+|  | excerpt | TextField(blank=True) |
+|  | updated_on | DateTimeField(auto_now=True) |
+
+</details>
+
+
+<details> 
+    <summary>Comment</summary>
+
+| Key | Name | Type |
+| ----------- | ----------- | ----------- |
+| Primary Key | id | AutoField |
+| Foreign Key  | review | ForeignKey to Review (on_delete=CASCADE, related_name="comments") |
+| Foreign Key | author | ForeignKey to User (on_delete=CASCADE) |
+|  | body | TextField |
+|  | approved | BooleanField(default=False) |
+|  | created_on | DateTimeField (auto_now_add=True) |
+
+<details>
+
 ## User Experience (UX)
 
 Wireframes were made for each display size and are shown below. The pages were designed for mobile first, then tablet and desktop last. 
@@ -268,7 +349,9 @@ Google fonts were used, mainly MuseoModerno with Helvetica Neue for headings.
 
 ### Imagery
 
-CLoudinary was used to host images.
+- Cloudinary was used to host some images
+- Tinypng was used to compress the images 
+- Hero image was AI created using [Canva image generator](https://www.canva.com/)
 
 
 ### UI/UX
@@ -289,7 +372,7 @@ The Agile framework was used throughout the development lifecycle, following the
 
 The website is comprised of a home page, an about page, a login page and a success page.
 
-All Pages on the website are responsive and have:
+All Pages on the website are responsive. Key features include the following:
 
 -  **Browse PC Components**
 
@@ -312,6 +395,7 @@ All Pages on the website are responsive and have:
 
 ![image of review functionality](docs/images/features/write-review.png)
 ![image of review functionality](docs/images/features/review-pending-approval.png)
+![image of review success message](docs/images/features/success-message.png)
 
 </details>
 
@@ -361,6 +445,8 @@ All Pages on the website are responsive and have:
 
 ![image of registration](docs/images/features/register.png)
 ![image of sign-in](docs/images/features/login-modal.png)
+![image of sign-in success message](docs/images/features/sign-in-message)
+![image of sign-out success message](docs/images/features/sign-out-message)
 
 </details>
 
@@ -413,7 +499,20 @@ Given more time, I would be keen to expand the project with a view to evolving t
 
 ## Accessibility
 
+The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) was used to ensure the website met high accessibility standards.
 
+All pages returned 0 errors.
+
+<details>
+    <summary>Click for results</summary>
+
+![image of about page](docs/images/wave-tests/wave-about-page.png)
+![image of basket page](docs/images/wave-tests/wave-basket-page.png)
+![image of component detail page](docs/images/wave-tests/wave-component-detail-page.png)
+![image of index page](docs/images/wave-tests/wave-index-page.png)
+![image of search page](docs/images/wave-tests/wave-search-page.png)
+
+</details>
 
 ## Technologies Used
 
@@ -439,17 +538,21 @@ HTML, CSS, Javascript, Python
 -   [W3C HTML/CSS validation](https://validator.w3.org/) - validating CSS files
 -   [Autoprefixer](https://autoprefixer.github.io/) - prefixing CSS
 -   [Adobe Color](https://color.adobe.com/create/color-wheel) - used to find complimentory colors from image
+-   [Canva](https://www.canva.com/) - used to generate hero image
+-   [Eraser](https://app.eraser.io/workspace/cwp8LhYqadRACPnPlckr) - used to create ORM models
 
 ### Databases
 
 -  [PostgreSQL](https://www.postgresql.org/) 
 
+The database was built with Python and the Django framework using PostgreSQL for the deployed Heroku version (production). It's a powerful and open-source object-relational database system that is known for its reliability, robustness, and performance. 
+
 ### Validation
-- [WC3 Validator](https://validator.w3.org/)
-- [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
-- [JShint](https://jshint.com/)
-- [CI Python Liner(PEP8)](https://pep8ci.herokuapp.com/)
-- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview)
+-  [WC3 Validator](https://validator.w3.org/)
+-  [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
+-  [JShint](https://jshint.com/)
+-  [CI Python Liner(PEP8)](https://pep8ci.herokuapp.com/)
+-  [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview)
 
 ## AI Implementation
 
@@ -475,19 +578,28 @@ AI assisted in identifying potential performance bottlenecks such as large image
 
 
 
-
-
 ## Deployment
 
 ### Heroku Deployment
 
 -  [Herouku](https://www.heroku.com/) (Ctrl + click)
 
-This application has been deployed from GitHub to Heroku. A guide to deploying to Heroku can be found here 
+This application has been deployed to Heroku via GitHub Integration. A guide to deploying to Heroku can be found [here](https://devcenter.heroku.com/articles/github-integration):
 
-Here are the steps to deployment:
+To deploy, initially you need to:
 
-Login or create an account at Heroku
+-  Login or create an account at Heroku
+-  Create a GitHub account
+
+- Within Heroku dashboard, click on New > Create new app in the top right of the screen
+- Add an app name and select location, then click 'create app'
+- Go to deploy page
+- Select connect to GitHub
+- Log in to your GitHub account 
+- Select the repository that you want to be connected to the Heroku app
+- Click settings and click on the Reveal Config Vars button
+- Add variables from your env.py file
+- Scroll to Deploy, pick your branch to Deploy and once deployed you can view the app in your browser
 
 ### Clone Repository
 You can clone the repository by following these steps:
@@ -501,6 +613,41 @@ You can clone the repository by following these steps:
 - Press Enter to create your local clone.
 
 ## Testing & Validation
+
+### Functional testing
+
+All testing passed with no errors. 
+
+### About forms
+
+<details>
+    <summary>Click here</summary>
+
+![image of about-test_forms code](docs/images/functional-tests/about-forms-test.png)
+
+</details>
+
+### Component forms & views
+
+<details>
+    <summary>Click here</summary>
+
+![image of component-test_forms code](docs/images/functional-tests/components-forms-test.png)
+![image of component-test_views code](docs/images/functional-tests/component-views-test.png)
+
+</details>
+
+### Review workflow
+
+<details>
+    <summary>Click here</summary>
+
+![image of review-test_workflow code](docs/images/functional-tests/testing-review-workflow.png)
+
+</details>
+
+
+
 
 ### Lighthouse testing
 
@@ -582,7 +729,7 @@ All pages are clear of any errors and pass PEP8 standard:
 
 ### HTML validation
 
-All pages are clear of any errors except for some minor django template related errors. 
+Most pages are clear of any errors except some had minor django template related errors. <ul> & <p> tags were being imported into existing <ul> & <p> tags from the base.html which was causing the errors. Given more time, I would adjust the code containing the component content to remove these errors. 
 
 <details>
 <summary>index.html</summary>
@@ -674,7 +821,17 @@ basket.js passed with no errors
 ### Known bugs
 
 -  Components in the navbar is not functional at present
--  Navbar can hand at times on opening in mobile view
+-  Navbar can hang at times on opening in mobile view
+-  No character limit on the review/comment form. I would like to add a CharField cap in a future update.
+-  I found some JS errors in final testing on sign-in page and review submission. Duplicate IDs are being used. This is a moderate bug which are important to fix but do not impact the site functionality or security. In an update, I would look to fix this and retest.  
+
+<details>
+    <summary>Click for detail<summary>
+
+![image of js errors in console](docs/images/bugs/javascript-bug-sign-in.png)
+![image of js errors in console](docs/images/bugs/javascript-bug2-review.png)
+
+</details>
 
 
 ## Credits/References
@@ -685,7 +842,11 @@ basket.js passed with no errors
 -  Google Fonts - Font library used
 -  Cloudinary - Image hosting
 
+Inspiration sources
+- [https://www.cclonline.com/](https://balsamiq.com/) - used as inspiration for pc e-commerce layout aswell as footer design
+- [pcpartpicker](https://uk.pcpartpicker.com/) - used as inspiration for what good looks like in terms of PC compoment information and logic between components
+
 
 ### Acknowledgments
 
-I would like to acknowledge all the technical tutors at Code Institute for their support throughout this project.
+I would like to acknowledge all the technical tutors at Code Institute for their support throughout this project. 
