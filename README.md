@@ -823,13 +823,6 @@ basket.js passed with no errors
 -  Components in the navbar is not functional at present
 -  Navbar can hang at times on opening in mobile view
 -  No character limit on the review/comment form. I would like to add a CharField cap in a future update.
--  I found some JS errors in final testing on sign-in page and review submission. Duplicate IDs are being used. This is a moderate bug which are important to fix but do not impact the site functionality or security. In an update, I would look to fix this and retest.  
-
-<details>
-    <summary>Click for detail</summary>
-
-![image of js errors in console](docs/images/bugs/javascript-bug-sign-in.png)
-![image of js errors in console](docs/images/bugs/javascript-bug2-review.png)
 
 </details>
 
