@@ -729,7 +729,7 @@ All pages are clear of any errors and pass PEP8 standard:
 
 ### HTML validation
 
-Most pages are clear of any errors except some had minor django template related errors. <ul> & <p> tags were being imported into existing <ul> & <p> tags from the base.html which was causing the errors. Given more time, I would adjust the code containing the component content to remove these errors. 
+Most pages are clear of any errors except some had minor django template related errors. "ul" & "p" tags were being imported into existing "ul" & "p" tags from the base.html which was causing the errors. Given more time, I would adjust the code containing the component content to remove these errors. 
 
 <details>
 <summary>index.html</summary>
@@ -826,7 +826,7 @@ basket.js passed with no errors
 -  I found some JS errors in final testing on sign-in page and review submission. Duplicate IDs are being used. This is a moderate bug which are important to fix but do not impact the site functionality or security. In an update, I would look to fix this and retest.  
 
 <details>
-    <summary>Click for detail<summary>
+    <summary>Click for detail</summary>
 
 ![image of js errors in console](docs/images/bugs/javascript-bug-sign-in.png)
 ![image of js errors in console](docs/images/bugs/javascript-bug2-review.png)
