@@ -169,7 +169,7 @@ The application is structured into multiple Django apps: home, component, review
 |  | approved | BooleanField(default=False) |
 |  | created_on | DateTimeField (auto_now_add=True) |
 
-<details>
+</details>
 
 ## User Experience (UX)
 
