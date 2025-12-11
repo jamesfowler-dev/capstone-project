@@ -59,50 +59,23 @@ Whether you’re a beginner building your first PC or a seasoned pro looking for
 
 There were 8 main criteria for this project:
 
-<details>
-  <summary>LO1: Learners will be able to apply Agile methodology to effectively plan and design a Full-Stack Web application using Django Web framework and related contemporary technologies.</summary>
 
-</details>
+-  LO1: Learners will be able to apply Agile methodology to effectively plan and design a Full-Stack Web application using Django Web framework and related contemporary technologies.
 
+-  LO2: Learners will be able to develop and implement a data model, application features, and business logic to manage, query, and manipulate data to meet specific needs in a real-world domain.
 
-<details>
-  <summary>LO2: Learners will be able to develop and implement a data model, application features, and business logic to manage, query, and manipulate data to meet specific needs in a real-world domain.</summary>
+-  LO3: Learners will be able to implement and configure authorization, authentication, and permission features in a Full-Stack web application.
 
-</details>
+-  LO4: Learners will be able to design, create, and execute manual or automated tests for a Full-Stack Web application using Django Web framework and related contemporary technologies.
 
-<details>
-  <summary>LO3: Learners will be able to implement and configure authorization, authentication, and permission features in a Full-Stack web application.</summary>
+-  LO5: Learners will be able to utilise a distributed version control system and a repository hosting service to document, develop, and maintain a Full-Stack Web application using Django Web framework and related contemporary technologies.
 
-</details>
+-  LO6: Learners will be able to deploy a Full-Stack Web application using Django Web framework and related contemporary technologies to a cloud-based platform, ensuring proper functionality and security.
 
-<details>
-  <summary>LO4: Learners will be able to design, create, and execute manual or automated tests for a Full-Stack Web application using Django Web framework and related contemporary technologies.</summary>
+-  LO7: Learners will be able to demonstrate the use of object-based software concepts by designing and implementing custom data models in their Full-Stack Web application development.
 
-</details>
+-  LO8: Learners will be able to leverage AI tools to orchestrate the software development process.
 
-<details>
-  <summary>LO5: Learners will be able to utilise a distributed version control system and a repository hosting service to document, develop, and maintain a Full-Stack Web application using Django Web framework and related contemporary technologies.</summary>
-
-</details>
-
-<details>
-  <summary>LO6: Learners will be able to deploy a Full-Stack Web application using Django Web framework and related contemporary technologies to a cloud-based platform, ensuring proper functionality and security.</summary>
-
-</details>
-
-<details>
-  <summary>LO7: Learners will be able to demonstrate the use of object-based software concepts by designing and implementing custom data models in their Full-Stack Web application development.</summary>
-
-</details>
-
-<details>
-  <summary>LO8: Learners will be able to leverage AI tools to orchestrate the software development process.</summary>
-
-</details>
-
-
-
-<br>
 
 # Structure & Concept
 
@@ -180,7 +153,7 @@ Wireframes were made for each display size and are shown below. The pages were d
     <summary>Click to view</summary>
 
 
-Log-in/Log-out: 
+**Log-in/Log-out:**
 
 - As a registered user, I want to log in and log out securely so that I can access personal features.
 - Acceptance Criteria: 
@@ -190,7 +163,7 @@ Log-in/Log-out:
     - When I click “log out” then I should be logged out and returned to a public page
 
 
-Admin Dashboard: 
+**Admin Dashboard:**
 
 - As the site owner, I want access to an admin dashboard so that I can manage all reviews & posts.
 - Acceptance Criteria: 
@@ -198,7 +171,7 @@ Admin Dashboard:
     - As an admin when I log into Django admin then I can view, edit, add, and delete PC part reviews/comments and manage user accounts via Django Admin
 
 
-View PC Part Details: 
+**View PC Part Details:**
 
 - As a site visitor, I want to view details of a specific PC part so that I can learn more about it.
 - Acceptance Criteria: 
@@ -208,7 +181,7 @@ View PC Part Details:
     - I want images so that each part has a preview.
 
 
-View PC Parts: 
+**View PC Parts:**
 
 - As a site visitor, I want to view a list of available PC parts so that I can browse what is available.
 - Acceptance Criteria: 
@@ -218,7 +191,7 @@ View PC Parts:
     - I should be able to click on a part to view more details
 
 
-Add a New PC Part Review or Comment: 
+**Add a New PC Part Review or Comment:**
 
 - As a logged-in user, I want to add a new PC part review so that I can tell people what I thought about the component.
 - Acceptance Criteria: 
@@ -226,7 +199,7 @@ Add a New PC Part Review or Comment:
     - When I am logged in and add review, a new PC part should be saved in the database and added to my cart.
 
 
-Register for an Account: 
+**Register for an Account:**
 
 - As a new user, I want to create an account so that I can see personalised information.
 - Acceptance Criteria: 
@@ -236,7 +209,7 @@ Register for an Account:
     - I should receive a success notification
 
 
-Edit an Existing Review or Comment: 
+**Edit an Existing Review or Comment:**
 
 - As a logged-in user, I want to edit a PC part review so that I can correct or update it.
 - Acceptance Criteria: 
@@ -244,7 +217,7 @@ Edit an Existing Review or Comment:
     - When I am logged in and I click “edit”, the review or comment should be removed and I should see a success message.
 
 
-Delete a PC Part Review or Comment: 
+**Delete a PC Part Review or Comment:**
 
 - As an Admin, I want to delete a PC part review or comment that I think could be inappropriate.
 - Acceptance Criteria: 
@@ -252,7 +225,7 @@ Delete a PC Part Review or Comment:
     - When I am logged in as Admin, I can approve the review or comment
 
 
-Search for PC Parts: 
+**Search for PC Parts:**
 
 - As a visitor, I want to search for parts so that I can quickly find what I need.
 - Acceptance Criteria: 
@@ -260,7 +233,7 @@ Search for PC Parts:
     - A search bar on the home page to fetch linked data
 
 
-Add items to a crate/basket: 
+**Add items to a crate/basket:**
 
 - As a site user, I want to add items to a basket and total the price.
 - Acceptance Criteria: 
@@ -270,7 +243,7 @@ Add items to a crate/basket:
     - I can view the basket with my items in and see the total price
 
 
-Compare 2 components (Could-do): 
+**Compare 2 components (Could-do):**
 
 - As a user I want to be able to compare 2 components before making a decision on a purchase.
 - Acceptance Criteria: 
@@ -279,9 +252,6 @@ Compare 2 components (Could-do):
 
 </details>
 
-
-
-## Design
 
 ### Color Scheme
 
@@ -295,9 +265,11 @@ Google fonts were used, mainly MuseoModerno with Helvetica Neue for headings.
 
 ![image of font theme](docs/images/font.png)
 
-<detail>
-    ![image of kanban board](docs/images/kanban-board.png)
-</detail>
+
+### Imagery
+
+CLoudinary was used to host images.
+
 
 ### UI/UX
 
@@ -311,10 +283,6 @@ The Agile framework was used throughout the development lifecycle, following the
 ![image of kanban board](docs/images/kanban-board.png)
 
 [Link to Kanban project board](https://github.com/users/jamesfowler-dev/projects/7/views/1)
-
-
-### Imagery
-
 
 
 ## Features
@@ -366,6 +334,7 @@ All Pages on the website are responsive and have:
 <details>
     <summary>Click to view</summary>
 
+![image of admin edit functionality](docs/images/features/admin-edit-comments.png)
 ![image of pending edit functionality](docs/images/features/pending-edit.png)
 
 </details>
@@ -454,34 +423,33 @@ HTML, CSS, Javascript, Python
 
 ## Frameworks, Libraries & Programs Used
 
--   [Django] - packages included crispy forms, whitenoise, gunicorn, Cloudinary
+-   [Django](https://www.djangoproject.com/) - packages included crispy forms, whitenoise, gunicorn, Cloudinary
 -   [Balsamiq](https://balsamiq.com/) - used to create the wireframes
 -   [Git](https://git-scm.com/) - for version control
 -   [Github](https://github.com/) - To save and store the files for the website
 -   [VS-Code](https://code.visualstudio.com/) - IDE used to create the site
 -   [Google Fonts](https://fonts.google.com/) - To import the fonts used on the website
+-   [Font Awesome](https://fontawesome.com/) - used to create the basket icon 
 -   [Bootstrap 5](https://getbootstrap.com/) - used to import the carousel and navbar elements
 -   [Google Developer Tools](https://developer.chrome.com/docs/devtools) - To troubleshoot and test features, solve issues with responsiveness and styling
 -   [TinyPNG](https://tinypng.com/) - to compress images
--   [Photopea](https://www.photopea.com/) - to resize images
 -   [Favicon.io](https://favicon.io/) - to create the favicon
--   [Unsplash](https://unsplash.com/) - to create the images used in the site
 -   [Co-Pilot](https://copilot.microsoft.com/) - used to troubleshoot minor issues and provide reminders for correct syntax
 -   [ChatGPT](https://chatgpt.com/) - used to troubleshoot minor issues and provide reminders for correct syntax
 -   [W3C HTML/CSS validation](https://validator.w3.org/) - validating CSS files
 -   [Autoprefixer](https://autoprefixer.github.io/) - prefixing CSS
 -   [Adobe Color](https://color.adobe.com/create/color-wheel) - used to find complimentory colors from image
 
-Validation:
-- WC3 Validator
-- Jigsaw W3 Validator
-- JShint
-- CI Python Liner(PEP8)
-- Lighthouse
-- JShint
-- CI Python Liner(PEP8)
-- Lighthouse
-- Wave Validator
+### Databases
+
+-  [PostgreSQL](https://www.postgresql.org/) 
+
+### Validation
+- [WC3 Validator](https://validator.w3.org/)
+- [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
+- [JShint](https://jshint.com/)
+- [CI Python Liner(PEP8)](https://pep8ci.herokuapp.com/)
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview)
 
 ## AI Implementation
 
@@ -536,7 +504,24 @@ You can clone the repository by following these steps:
 
 ### Lighthouse testing
 
+Lighthouse scores are above 80 for all pages except for the search page in mobile. This is due to Cloudinary image rendering issues. 
 
+<details>
+<summary>Click to see test results:</summary>
+
+![image of lighthouse-desktop-about](docs/images/lighthouse-testing/lighthouse-desktop-about.png)
+![image of lighthouse-desktop-basket](docs/images/lighthouse-testing/lighthouse-desktop-basket.png)
+![image of lighthouse-desktop-compoenent_details](docs/images/lighthouse-testing/lighthouse-desktop-component-details.png)
+![image of lighthouse-desktop-register](docs/images/lighthouse-testing/lighthouse-desktop-register.png)
+![image of lighthouse-desktop-search](docs/images/lighthouse-testing/lighthouse-desktop-search.png)
+![image of lighthouse-mobile-basket](docs/images/lighthouse-testing/lighthouse-mobile-basket.png)
+![image of lighthouse-mobile-component_details](docs/images/lighthouse-testing/lighthouse-mobile-component-details.png)
+![image of lighthouse-mobile-register](docs/images/lighthouse-testing/lighthouse-mobile-register.png)
+![image of lighthouse-desktop-index](docs/images/lighthouse-testing/lighthouse-desktop-index.png)
+![image of lighthouse-mobile-component_details](docs/images/lighthouse-testing/lighthouse-mobile-index.png)
+
+
+</details>
 
 ### Python validation
 
@@ -597,7 +582,7 @@ All pages are clear of any errors and pass PEP8 standard:
 
 ### HTML validation
 
-All pages are clear of any errors except for an issue on component_detail.html
+All pages are clear of any errors except for some minor django template related errors. 
 
 <details>
 <summary>index.html</summary>
@@ -609,14 +594,14 @@ All pages are clear of any errors except for an issue on component_detail.html
 <details>
 <summary>component_detail.html</summary>
 
-
+![image of component-detail page](docs/images/html-validation/html-validation-component-detail-page.png)
 
 </details>
 
 <details>
 <summary>component_search.html</summary>
 
-
+![image of component-search page](docs/images/html-validation/html-validation-component-search-page.png)
 
 
 </details>
@@ -639,6 +624,7 @@ All pages are clear of any errors except for an issue on component_detail.html
 <details>
 <summary>base.html</summary>
 
+![image of base.html](docs/images/html-validation/html-validation-base-html.png)
 
 
 </details>
@@ -674,6 +660,7 @@ JSHint javaScript Validation Service was used to validate all javaScript files. 
 
 </details>
 
+<br>
 
 basket.js passed with no errors
 
