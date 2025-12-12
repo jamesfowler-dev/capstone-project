@@ -17,7 +17,7 @@
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title btn btn-secondary btn-sm text-decoration-none text-dark">{{ component.name }}</h5>
-                            <p class="card-text text-truncate">{{ component.description|truncatechars_html:100|safe }}</p>
+                            <div class="card-text text-truncate">{{ component.description|truncatechars_html:100|safe }}</div>
                         </div>
                     </div>
                 </a>

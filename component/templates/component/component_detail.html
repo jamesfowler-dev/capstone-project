@@ -102,7 +102,7 @@
                                             ">
                                                 <p><strong>{{ comment.author.username }}</strong>
                                                 <small>{{ comment.created_on|date:"M d, Y H:i" }}</small></p>
-                                                <div id="comment{{ comment.id }}">{{ comment.body|linebreaks }}</div>
+                                                <div class="comment-body" data-comment-id="{{ comment.id }}">{{ comment.body|linebreaks }}</div>
 
                                                 {% if user == comment.author and not comment.approved %}
                                                     <p class="text-danger"><em>This comment is awaiting approval</em></p>
@@ -110,10 +110,12 @@
 
                                                 {% if user.is_authenticated and comment.author == user %}
                                                     <!-- Edit Button -->
-                                                    <a href="{% url 'comment_edit' component.slug comment.id %}"
-                                                        class="btn btn-primary mt-2" id="edit-review-button">
+                                                <button type="button" class="btn btn-primary mt-2 edit-comment-button"
+                                                        data-comment-id="{{ comment.id }}"
+                                                        data-review-id="{{ review.id }}"
+                                                        data-slug="{{ component.slug }}">
                                                     Edit
-                                                    </a>
+                                                 </button>
 
                                                     <!-- Delete Button -->
                                                     <form method="post" action="{% url 'comment_delete' component.slug comment.id %}" style="display:inline;">
@@ -139,17 +141,16 @@
                                         <h3>Leave a comment:</h3>
 
                                         {% comment %} Unique IDs per review {% endcomment %}
-                                        <form method="post" id="commentForm{{ review.id }}" data-slug="{{ component.slug }}">
+                                        <form method="post" class="comment-form" data-slug="{{ component.slug }}">
                                             {% csrf_token %}
-                                            {{ comment_form|crispy }}
+                                            <textarea name="body" cols="40" rows="10" class="comment-textarea form-control" required></textarea>
 
                                             {% comment %} Hidden review ID {% endcomment %}
                                             <input type="hidden" name="review_id" value="{{ review.id }}">
 
                                             {% comment %} Unique submit button {% endcomment %}
-                                            <button type="submit" name="comment_form" id="submitButton{{ review.id }}" class="btn btn-primary mt-2">
-                                                Submit Comment
-                                            </button>
+                                            <button type="submit" name="comment_form" class="submit-button btn btn-primary mt-2">Submit Comment</button>
+
                                         </form>
                                     </div>
                                 </div>

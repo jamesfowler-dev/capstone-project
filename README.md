@@ -733,7 +733,7 @@ All pages are clear of any errors and pass PEP8 standard:
 
 ### HTML validation
 
-Most pages are clear of any errors except some had minor django template related errors. "ul" & "p" tags were being imported into existing "ul" & "p" tags from the base.html which was causing the errors. Given more time, I would adjust the code containing the component content to remove these errors. 
+All pages are clear of any errors. Base.html displays django-created related errors but none impact functionality.  
 
 <details>
 <summary>index.html</summary>
@@ -745,14 +745,14 @@ Most pages are clear of any errors except some had minor django template related
 <details>
 <summary>component_detail.html</summary>
 
-![image of component-detail page](docs/images/html-validation/html-validation-component-detail-page.png)
+![image of component-detail page](docs/images/html-validation/validation-html-component-detail.png)
 
 </details>
 
 <details>
 <summary>component_search.html</summary>
 
-![image of component-search page](docs/images/html-validation/html-validation-component-search-page.png)
+![image of component-search page](docs/images/html-validation/validation-fix-search-page.png)
 
 
 </details>
@@ -801,13 +801,13 @@ The W3C Jigsaw CSS Validation Service was used to validate the CSS of the websit
 
 
 ### JavaScript Validation
-JSHint javaScript Validation Service was used to validate all javaScript files. comment.js had a minor warning but nothing that would impact functionality.
+JSHint javaScript Validation Service was used to validate all javaScript files. 
 
-"Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (button)"
+comments.js passed with no errors
 
 <details>
 
-![image of comment.js](docs/images/comment-js-validation.png)
+![image of comment.js](docs/images/validation-jshint-comment-js.png)
 
 </details>
 
@@ -827,15 +827,6 @@ basket.js passed with no errors
 -  Components in the navbar not functional at present but to be implemented when further components added.
 -  Navbar can hang at times on opening in mobile view
 -  No character limit on the review/comment form. I would like to add a CharField cap in a future update.
--  Some JS errors remain due to Django automatically assigning IDs when creating some review submission instances leading to duplicate IDs. This is a moderate bug which is important to fix but does not impact the site functionality or security. In an update, I would fix this and retest. 
-
-<details>
-    <summary>Cick to view bug</summary>
-
-![image of js bug](docs/images/bugs/javascript-bug2-review.png)
-
-</details>
-
 
 ## Credits/References
 
