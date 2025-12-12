@@ -1,25 +1,33 @@
-const commentForm = document.getElementById("commentForm");
 
-// Wrap in if statement so only applied when commentForm exists
-if (commentForm) {
-    const commentText = commentForm.querySelector("#id_body");
-    const reviewIdInput = document.getElementById("form-review-id");
-    const submitButton = document.getElementById("submitButton");
-    const editButtons = document.getElementsByClassName("btn-edit");
+// Get all comment forms
+const commentForms = document.querySelectorAll(".comment-form");
 
+// Edit buttons
+const editButtons = document.querySelectorAll(".edit-comment-button");
 
-    for (let button of editButtons) {
-      button.addEventListener("click", (e) => {
-        let commentId = e.target.getAttribute("data-comment_id");
+editButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        const commentId = button.getAttribute("data-comment-id");
         const reviewId = button.getAttribute("data-review-id");
-        let commentContent = document.getElementById(`comment${commentId}`).innerText;
-        let slug = commentForm.getAttribute("data-slug");
+        const slug = button.getAttribute("data-slug");
 
-        commentText.value = commentContent;
+        // Select the form for this review
+        const form = document.querySelector(`.comment-form[data-slug="${slug}"]`);
+        const commentText = form.querySelector(".comment-textarea");
+        const reviewIdInput = form.querySelector("input[name='review_id']");
+        const submitButton = form.querySelector(".submit-button");
+
+        // Get existing comment content
+        const existingText = document.getElementById(`comment${commentId}`).innerText;
+
+        // Populate form with existing comment
+        commentText.value = existingText;
         reviewIdInput.value = reviewId;
-        submitButton.innerText = "Update";
-        commentForm.setAttribute("action", `/component/${slug}/edit_comment/${commentId}/`);
-        commentForm.scrollIntoView({ behavior: "smooth" });
-      });
-    }
-}
+        submitButton.innerText = "Update Comment";
+
+        // Change form action
+        form.setAttribute("action", `/component/${slug}/edit_comment/${commentId}/`);
+
+        form.scrollIntoView({ behavior: "smooth" });
+    });
+});
