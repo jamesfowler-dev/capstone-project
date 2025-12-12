@@ -1,4 +1,4 @@
-Welcome to EZPCreview.co.uk, my final capstone project for Code Institute's Full Stack Developement Boot Camp course. 
+Welcome to EZPCreview.co.uk, my final capstone project for Code Institute's Full Stack Development Boot Camp course. 
 
 Developer: James Fowler
 
@@ -7,9 +7,9 @@ Developer: James Fowler
 ![alt text](docs/images/home-page.png)
 
 # Table of Contents
-- [Introduction](#Introduction) 
-    - [Requirements](#Requirements)
-    - [Structure & Concepts](#Structure-&-Concepts)
+- [Introduction](#introduction) 
+    - [Requirements](#requirements)
+    - [Structure & Concepts](#structure--concepts)
 
 -   [User Experience](#user-experience)
 
@@ -18,8 +18,9 @@ Developer: James Fowler
 -   [Design](#design)
 
     -   [Color Scheme](#color-scheme)
-    -   [Typography](#typography)
+    -   [Font](#font)
     -   [Imagery](#imagery)
+    -   [Agile framework](#agile-framework)
     -   [Wireframes](#wireframes)
     -   [Features](#features)
     -   [Accessibility](#accessibility)
@@ -31,9 +32,9 @@ Developer: James Fowler
     -   [AI Implementation](#ai-implementation)
 
 -   [Deployment](#deployment)
--   [Testing](#testing)
--   [Credits](#credits)
--   [Acknowledgements](#acknowledgments)
+-   [Testing & Validation](#testing--validation)
+-   [Credits/References](#credits--references)
+-   [Acknowledgements](#acknowledgements)
 
 # Introduction
 
@@ -77,7 +78,7 @@ There were 8 main criteria for this project:
 -  LO8: Learners will be able to leverage AI tools to orchestrate the software development process.
 
 
-# Structure & Concept
+# Structure & Concepts
 
 The application is structured into multiple Django apps: home, component, review, and basket to keep each core feature logically separated and easy to maintain. This modular approach ensures that component browsing, user reviews, and e-commerce functionality remain cleanly organised and independently scalable. The website opens on the home page, where users can browse featured PC components and navigate through clearly defined categories. Selecting a component brings the user to a detailed product page that displays specifications, pricing, approved user reviews, and any reviews awaiting moderation by their authors. The review system supports full CRUD functionality and comment threads, enabling users to actively engage with each component. Alongside this, the basket app allows users to add components to a session-based shopping basket, view their selections, and adjust quantities before checkout. Throughout development, the structure evolved to prioritise usability, maintainability, and clear separation of concerns, ensuring that each part of the site performs its role efficiently while contributing to a cohesive overall user experience.
 
@@ -171,7 +172,9 @@ The application is structured into multiple Django apps: home, component, review
 
 </details>
 
-## User Experience (UX)
+## User Experience
+
+### Wireframes
 
 Wireframes were made for each display size and are shown below. The pages were designed for mobile first, then tablet and desktop last. 
 
@@ -186,7 +189,7 @@ Wireframes were made for each display size and are shown below. The pages were d
 <details>
   <summary>Component detail page (Click to expand)</summary>
 
-![image of component detail page](docs/images//wireframes/wireframe-component-detail-page.png)
+![image of component detail page](docs/images/wireframes/wireframe-component-detail-page.png)
 
 </details>
 
@@ -214,7 +217,7 @@ Wireframes were made for each display size and are shown below. The pages were d
 <details>
   <summary>Register page (Click to expand)</summary>
 
-![image of Register page](docs/images//wireframes/wireframe-register.png)
+![image of Register page](docs/images/wireframes/wireframe-register.png)
 
 </details>
 
@@ -277,7 +280,7 @@ Wireframes were made for each display size and are shown below. The pages were d
 - As a logged-in user, I want to add a new PC part review so that I can tell people what I thought about the component.
 - Acceptance Criteria: 
 
-    - When I am logged in and add review, a new PC part should be saved in the database and added to my cart.
+    - When I am logged in and add review, a new review should be saved in the database.
 
 
 **Register for an Account:**
@@ -333,6 +336,7 @@ Wireframes were made for each display size and are shown below. The pages were d
 
 </details>
 
+## Design
 
 ### Color Scheme
 
@@ -370,7 +374,7 @@ The Agile framework was used throughout the development lifecycle, following the
 
 ## Features
 
-The website is comprised of a home page, an about page, a login page and a success page.
+The website is comprised of a home page, an about page, a compoenent detail page and a register page along with an admin panel.
 
 All Pages on the website are responsive. Key features include the following:
 
@@ -445,8 +449,8 @@ All Pages on the website are responsive. Key features include the following:
 
 ![image of registration](docs/images/features/register.png)
 ![image of sign-in](docs/images/features/login-modal.png)
-![image of sign-in success message](docs/images/features/sign-in-message)
-![image of sign-out success message](docs/images/features/sign-out-message)
+![image of sign-in success message](docs/images/features/sign-in-message.png)
+![image of sign-out success message](docs/images/features/sign-out-message.png)
 
 </details>
 
@@ -492,7 +496,7 @@ All Pages on the website are responsive. Key features include the following:
 
 Given more time, I would be keen to expand the project with a view to evolving the site into a comprehensive site to explore pc building. Specifically new features could include:
 
--  More components with seperate pages for category
+-  More components with separate pages for category
 -  Database basket system to provide user-specific baskets 
 -  Compare 2 or more components 
 -  Implement purchase system
@@ -537,7 +541,7 @@ HTML, CSS, Javascript, Python
 -   [ChatGPT](https://chatgpt.com/) - used to troubleshoot minor issues and provide reminders for correct syntax
 -   [W3C HTML/CSS validation](https://validator.w3.org/) - validating CSS files
 -   [Autoprefixer](https://autoprefixer.github.io/) - prefixing CSS
--   [Adobe Color](https://color.adobe.com/create/color-wheel) - used to find complimentory colors from image
+-   [Adobe Color](https://color.adobe.com/create/color-wheel) - used to find complementary colors from image
 -   [Canva](https://www.canva.com/) - used to generate hero image
 -   [Eraser](https://app.eraser.io/workspace/cwp8LhYqadRACPnPlckr) - used to create ORM models
 
@@ -568,7 +572,7 @@ AI was used in several parts of the codebase to support learning and problem-sol
 
 ### Debugging and Learning
 
-AI was particularly helpful when debugging unexpected behaviour or complex error codes. It helped explain specififc error messages, identify likely causes and suggest different approaches to resolve issues. This made it a useful learning tool and avoid unecessary frustration especially when working with more complex Django features or template logic. However, it wasn’t perfect and some suggestions went in the wrong direction or needed refinement, so critical thinking was still key. 
+AI was particularly helpful when debugging unexpected behaviour or complex error codes. It helped explain specific error messages, identify likely causes and suggest different approaches to resolve issues. This made it a useful learning tool and avoid unnecessary frustration especially when working with more complex Django features or template logic. However, it wasn’t perfect and some suggestions went in the wrong direction or needed refinement, so critical thinking was still key. 
 
 Overall, AI was an excellent support tool and provided significant benefits towards realising the vision of this project especially for repetitive tasks and troubleshooting. It also proved that it’s not a substitute for a knowledgeable developer, as human oversight was essential to ensure correct, efficient, and maintainable code.
 
@@ -582,7 +586,7 @@ AI assisted in identifying potential performance bottlenecks such as large image
 
 ### Heroku Deployment
 
--  [Herouku](https://www.heroku.com/) (Ctrl + click)
+-  [Heroku](https://www.heroku.com/) (Ctrl + click)
 
 This application has been deployed to Heroku via GitHub Integration. A guide to deploying to Heroku can be found [here](https://devcenter.heroku.com/articles/github-integration):
 
@@ -606,7 +610,7 @@ You can clone the repository by following these steps:
 
 - Go to the GitHub repository
 - Locate the Code button above the list of files and click it
-- Select if you prefere to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the - URL to your clipboard
+- Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the - URL to your clipboard
 - Open Git Bash
 - Change the current working directory to the one where you want the cloned directory
 - Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY) 
@@ -820,9 +824,15 @@ basket.js passed with no errors
 
 ### Known bugs
 
--  Components in the navbar is not functional at present
+-  Components in the navbar not functional at present but to be implemented when further components added.
 -  Navbar can hang at times on opening in mobile view
 -  No character limit on the review/comment form. I would like to add a CharField cap in a future update.
+-  Some JS errors remain due to Django automatically assigning IDs when creating some review submission instances leading to duplicate IDs. This is a moderate bug which is important to fix but does not impact the site functionality or security. In an update, I would fix this and retest. 
+
+<details>
+    <summary>Cick to view bug</summary>
+
+![image of js bug](docs/images/bugs/javascript-bug2-review.png)
 
 </details>
 
@@ -836,10 +846,10 @@ basket.js passed with no errors
 -  Cloudinary - Image hosting
 
 Inspiration sources
-- [https://www.cclonline.com/](https://balsamiq.com/) - used as inspiration for pc e-commerce layout aswell as footer design
-- [pcpartpicker](https://uk.pcpartpicker.com/) - used as inspiration for what good looks like in terms of PC compoment information and logic between components
+- [https://www.cclonline.com/](https://balsamiq.com/) - used as inspiration for pc e-commerce layout as well as footer design
+- [pcpartpicker](https://uk.pcpartpicker.com/) - used as inspiration for what good looks like in terms of PC component information and logic between components
 
 
-### Acknowledgments
+### Acknowledgements
 
 I would like to acknowledge all the technical tutors at Code Institute for their support throughout this project. 
