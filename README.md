@@ -807,11 +807,10 @@ comments.js passed with no errors
 
 <details>
 
-![image of comment.js](docs/images/validation-jshint-comment-js.png)
+![image of comment.js](docs/images/validation-comments-js2.png)
 
 </details>
 
-<br>
 
 basket.js passed with no errors
 
