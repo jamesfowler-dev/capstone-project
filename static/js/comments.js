@@ -1,7 +1,4 @@
 
-// Get all comment forms
-const commentForms = document.querySelectorAll(".comment-form");
-
 // Edit buttons
 const editButtons = document.querySelectorAll(".edit-comment-button");
 
@@ -18,7 +15,7 @@ editButtons.forEach((button) => {
         const submitButton = form.querySelector(".submit-button");
 
         // Get existing comment content
-        const existingText = document.getElementById(`comment${commentId}`).innerText;
+        const existingText = document.querySelector(`[data-comment-id="${commentId}"]`).innerText;
 
         // Populate form with existing comment
         commentText.value = existingText;

@@ -827,6 +827,7 @@ basket.js passed with no errors
 -  Components in the navbar not functional at present but to be implemented when further components added.
 -  Navbar can hang at times on opening in mobile view
 -  No character limit on the review/comment form. I would like to add a CharField cap in a future update.
+-  Pending reviews opacity styling needs to be fixed
 
 ## Credits/References
 
